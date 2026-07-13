@@ -27,6 +27,7 @@ class CompanyProfile(models.Model):
 class Testimonial(models.Model):
     client_name = models.CharField(max_length=100)
     company = models.CharField(max_length=100, blank=True)
+    position = models.CharField(max_length=100, blank=True)
     testimonial = models.TextField()
     image = models.ImageField(upload_to="testimonials/", blank=True, null=True)
     rating = models.PositiveSmallIntegerField(default=5)
