@@ -5,7 +5,7 @@ from django.utils.text import slugify
 class Service(models.Model):
     title = models.CharField(max_length=150)
     slug = models.SlugField(unique=True, blank=True)
-
+    
     description = models.TextField()
     icon = models.CharField(max_length=100, blank=True)  # optional (for frontend icons)
 

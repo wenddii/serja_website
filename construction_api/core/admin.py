@@ -1,3 +1,8 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import CompanyProfile, Testimonial
+
+
+admin.site.register(CompanyProfile)
+admin.site.register(Testimonial)
+

@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ project.title }} | Serja Construction{% endblock %}
+
+{% block content %}
+  <section class="site-card overflow-hidden rounded-[2rem]">
+    <div class="grid lg:grid-cols-[1.25fr_0.75fr] lg:items-stretch">
+      <div class="media-frame min-h-[320px] lg:min-h-[460px]">
+        {% if project.cover_image %}
+          <img src="{{ project.cover_image.url }}" alt="{{ project.title }}" class="h-full w-full object-cover">
+        {% else %}
+          <img src="/static/company/images.jpg" alt="{{ project.title }}" class="h-full w-full object-cover">
+        {% endif %}
+      </div>
+
+      <div class="p-6 sm:p-8 lg:p-10">
+        <p class="text-sm font-semibold uppercase tracking-[0.2em] text-accent-600">Project</p>
+        <h2 class="mt-3 text-3xl font-semibold tracking-tight text-slate-900 md:text-4xl">{{ project.title }}</h2>
+        <p class="mt-4 text-base leading-8 text-slate-600">{{ project.description }}</p>
+
+        <div class="mt-8 space-y-4">
+          <div class="rounded-2xl bg-[#f8f8f8] px-4 py-3">
+            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">Location</p>
+            <p class="mt-2 text-sm font-medium text-slate-800">{{ project.location }}</p>
+          </div>
+          <div class="rounded-2xl bg-[#f8f8f8] px-4 py-3">
+            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">Status</p>
+            <p class="mt-2 text-sm font-medium text-slate-800">{{ project.get_status_display }}</p>
+          </div>
+          {% if project.category %}
+            <div class="rounded-2xl bg-accent-50 px-4 py-3">
+              <p class="text-xs font-semibold uppercase tracking-[0.2em] text-accent-600">Category</p>
+              <p class="mt-2 text-sm font-medium text-slate-800">{{ project.category.name }}</p>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mt-14">
+    <div class="flex items-end justify-between gap-4">
+      <div>
+        <p class="text-sm font-semibold uppercase tracking-[0.2em] text-accent-600">Gallery</p>
+        <h3 class="mt-3 text-3xl font-semibold tracking-tight text-slate-900">Project images</h3>
+      </div>
+    </div>
+
+    <div class="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+      {% for image in project_images %}
+        <div class="site-card overflow-hidden rounded-[1.75rem]">
+          <div class="media-frame aspect-[4/3]">
+            <img src="{{ image.image.url }}" alt="{{ image.caption|default:'Project image' }}" class="h-full w-full object-cover">
+          </div>
+          <div class="p-5">
+            <p class="text-sm font-semibold text-slate-900">{{ image.caption|default:'Project image' }}</p>
+          </div>
+        </div>
+      {% empty %}
+        <div class="site-card rounded-[1.75rem] p-6 text-sm text-slate-600">No extra images uploaded.</div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="mt-14">
+    <div class="flex items-end justify-between gap-4">
+      <div>
+        <p class="text-sm font-semibold uppercase tracking-[0.2em] text-accent-600">Related</p>
+        <h3 class="mt-3 text-3xl font-semibold tracking-tight text-slate-900">Similar projects</h3>
+      </div>
+    </div>
+
+    <div class="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+      {% for item in related_projects %}
+        <a href="{% url 'project_detail' item.slug %}" class="group site-card overflow-hidden rounded-[1.75rem] transition hover:-translate-y-1">
+          <div class="media-frame aspect-[4/3]">
+            {% if item.cover_image %}
+              <img src="{{ item.cover_image.url }}" alt="{{ item.title }}" class="h-full w-full object-cover transition duration-300 group-hover:scale-[1.03]">
+            {% else %}
+              <img src="/static/company/images.jpg" alt="{{ item.title }}" class="h-full w-full object-cover transition duration-300 group-hover:scale-[1.03]">
+            {% endif %}
+          </div>
+          <div class="p-5">
+            <p class="text-lg font-semibold text-slate-900">{{ item.title }}</p>
+            <p class="mt-2 text-sm text-slate-600">View details</p>
+          </div>
+        </a>
+      {% empty %}
+        <div class="site-card rounded-[1.75rem] p-6 text-sm text-slate-600">No related projects.</div>
+      {% endfor %}
+    </div>
+  </section>
+{% endblock %}

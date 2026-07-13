@@ -1,0 +1,246 @@
+{% extends 'base.html' %}
+
+{% block title %}Home | Serja Construction{% endblock %}
+
+{% block content %}
+  <section class="site-card overflow-hidden rounded-[2rem]">
+    <div class="grid min-h-[calc(100vh-88px)] lg:grid-cols-2 lg:items-stretch">
+      <div class="p-6 sm:p-8 lg:p-12">
+        <p class="inline-flex rounded-full bg-accent-50 px-4 py-2 text-xs font-semibold tracking-wide text-accent-700">
+          Serja Construction &amp; General Trade PLC
+        </p>
+        <h2 class="mt-6 text-4xl font-semibold tracking-tight text-slate-900 md:text-5xl">
+          Reliable construction, presented with clarity.
+        </h2>
+        <p class="mt-4 max-w-xl text-base leading-8 text-slate-600">
+          We deliver construction and trade services with careful planning, clean execution, and a professional finish.
+        </p>
+
+        <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+          <a href="{% url 'projects' %}" class="button-primary">View Projects</a>
+          <a href="{% url 'contact' %}" class="button-secondary">Contact Us</a>
+        </div>
+      </div>
+
+      <div class="media-frame min-h-[320px] lg:min-h-full h-full relative flex items-stretch">
+        {% if featured_projects and featured_projects.0.cover_image %}
+          <img src="{{ featured_projects.0.cover_image.url }}" alt="{{ featured_projects.0.title }}" class="h-full w-full object-cover">
+        {% else %}
+          <img src="/static/company/images.jpg" alt="Construction site" class="h-full w-full object-cover">
+        {% endif %}
+      </div>
+    </div>
+  </section>
+
+  <section class="mt-14">
+    <div class="max-w-6xl">
+      <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div class="site-card rounded-[1.75rem] p-6 text-center">
+          <div class="text-4xl font-extrabold tracking-tight text-slate-900">15+</div>
+          <p class="mt-2 text-sm font-semibold text-slate-700">Completed projects</p>
+        </div>
+        <div class="site-card rounded-[1.75rem] p-6 text-center">
+          <div class="text-4xl font-extrabold tracking-tight text-slate-900">15+</div>
+          <p class="mt-2 text-sm font-semibold text-slate-700">Years of experience</p>
+        </div>
+        <div class="site-card rounded-[1.75rem] p-6 text-center">
+          <div class="text-4xl font-extrabold tracking-tight text-slate-900">100+</div>
+          <p class="mt-2 text-sm font-semibold text-slate-700">Satisfied customers</p>
+        </div>
+        <div class="site-card rounded-[1.75rem] p-6 text-center">
+          <div class="text-4xl font-extrabold tracking-tight text-slate-900">20+</div>
+          <p class="mt-2 text-sm font-semibold text-slate-700">Heavy machines</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mt-14">
+    <div class="mx-auto max-w-2xl text-center">
+      <h3 class="mt-3 text-3xl font-semibold tracking-tight text-accent-700">Why choose Serja?</h3>
+    </div>
+
+    <div class="mt-8 grid gap-4 sm:grid-cols-2">
+      <div class="site-card rounded-[1.5rem] p-6">
+        <div class="flex items-start justify-between gap-4">
+          <h4 class="text-lg font-semibold text-slate-900">Clear plans</h4>
+          <span class="mt-1 inline-flex h-7 w-7 items-center justify-center rounded-full bg-accent-50 text-accent-700">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4" aria-hidden="true">
+              <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L10.94 10 7.23 6.29a.75.75 0 011.06-1.06l4.25 4.25a.75.75 0 010 1.06l-4.25 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+            </svg>
+          </span>
+        </div>
+        <p class="mt-2 text-sm text-slate-600">Defined scope and milestones.</p>
+      </div>
+
+      <div class="site-card rounded-[1.5rem] p-6">
+        <div class="flex items-start justify-between gap-4">
+          <h4 class="text-lg font-semibold text-slate-900">On-time delivery</h4>
+          <span class="mt-1 inline-flex h-7 w-7 items-center justify-center rounded-full bg-accent-50 text-accent-700">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4" aria-hidden="true">
+              <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L10.94 10 7.23 6.29a.75.75 0 011.06-1.06l4.25 4.25a.75.75 0 010 1.06l-4.25 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+            </svg>
+          </span>
+        </div>
+        <p class="mt-2 text-sm text-slate-600">We respect schedules and timelines.</p>
+      </div>
+
+      <div class="site-card rounded-[1.5rem] p-6">
+        <div class="flex items-start justify-between gap-4">
+          <h4 class="text-lg font-semibold text-slate-900">Skilled teams</h4>
+          <span class="mt-1 inline-flex h-7 w-7 items-center justify-center rounded-full bg-accent-50 text-accent-700">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4" aria-hidden="true">
+              <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L10.94 10 7.23 6.29a.75.75 0 011.06-1.06l4.25 4.25a.75.75 0 010 1.06l-4.25 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+            </svg>
+          </span>
+        </div>
+        <p class="mt-2 text-sm text-slate-600">Experienced workers and supervisors.</p>
+      </div>
+
+      <div class="site-card rounded-[1.5rem] p-6">
+        <div class="flex items-start justify-between gap-4">
+          <h4 class="text-lg font-semibold text-slate-900">Clean workmanship</h4>
+          <span class="mt-1 inline-flex h-7 w-7 items-center justify-center rounded-full bg-accent-50 text-accent-700">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4" aria-hidden="true">
+              <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L10.94 10 7.23 6.29a.75.75 0 011.06-1.06l4.25 4.25a.75.75 0 010 1.06l-4.25 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+            </svg>
+          </span>
+        </div>
+        <p class="mt-2 text-sm text-slate-600">Good quality with careful finishing.</p>
+      </div>
+
+      <div class="site-card rounded-[1.5rem] p-6">
+        <div class="flex items-start justify-between gap-4">
+          <h4 class="text-lg font-semibold text-slate-900">Transparent updates</h4>
+          <span class="mt-1 inline-flex h-7 w-7 items-center justify-center rounded-full bg-accent-50 text-accent-700">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4" aria-hidden="true">
+              <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L10.94 10 7.23 6.29a.75.75 0 011.06-1.06l4.25 4.25a.75.75 0 010 1.06l-4.25 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+            </svg>
+          </span>
+        </div>
+        <p class="mt-2 text-sm text-slate-600">Straightforward communication.</p>
+      </div>
+
+      <div class="site-card rounded-[1.5rem] p-6">
+        <div class="flex items-start justify-between gap-4">
+          <h4 class="text-lg font-semibold text-slate-900">Trusted delivery</h4>
+          <span class="mt-1 inline-flex h-7 w-7 items-center justify-center rounded-full bg-accent-50 text-accent-700">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4" aria-hidden="true">
+              <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L10.94 10 7.23 6.29a.75.75 0 011.06-1.06l4.25 4.25a.75.75 0 010 1.06l-4.25 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+            </svg>
+          </span>
+        </div>
+        <p class="mt-2 text-sm text-slate-600">Consistent results, every project.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="mt-14">
+    <div class="mx-auto max-w-2xl text-center">
+      <p class="text-sm font-semibold uppercase tracking-[0.2em] text-accent-600">Featured Services</p>
+      <div class="flex items-center justify-between gap-4">
+        <h3 class="text-3xl font-semibold tracking-tight text-accent-700">Featured Services</h3>
+        <a href="{% url 'services' %}" class="button-secondary px-4 py-2 text-xs font-semibold">View services</a>
+      </div>
+    </div>
+
+    <div class="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+      {% for service in featured_services %}
+        <article class="group site-card rounded-[1.75rem] p-6 transition hover:-translate-y-1">
+          <div class="flex h-11 w-11 items-center justify-center rounded-2xl bg-accent-50 text-accent-700 transition group-hover:bg-accent-100">
+            {% with lucide_icon=service.icon|default:'wrench' %}
+              <i data-lucide="{{ lucide_icon }}" class="h-5 w-5 group-hover:text-accent-800" aria-hidden="true"></i>
+            {% endwith %}
+          </div>
+
+          <h4 class="mt-5 text-lg font-semibold text-slate-900">{{ service.title }}</h4>
+          <p class="mt-3 text-sm leading-7 text-slate-600">{{ service.description }}</p>
+        </article>
+      {% empty %}
+        <div class="site-card rounded-[1.75rem] p-6 text-sm text-slate-600">No services added yet.</div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="mt-14">
+    <div class="mx-auto max-w-6xl">
+      <div class="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
+        <div class="text-left sm:text-center">
+          <p class="text-sm font-semibold uppercase tracking-[0.2em] text-accent-600">Projects</p>
+          <h3 class="mt-3 text-3xl font-semibold tracking-tight text-slate-900">Recent work</h3>
+        </div>
+        <a href="{% url 'projects' %}" class="button-secondary px-4 py-2 text-xs font-semibold">View all</a>
+      </div>
+    </div>
+
+    <div class="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+      {% for project in featured_projects %}
+        <a href="{% url 'project_detail' project.slug %}" class="group site-card overflow-hidden rounded-[1.75rem] transition hover:-translate-y-1">
+          <div class="media-frame aspect-[4/3]">
+            {% if project.cover_image %}
+              <img src="{{ project.cover_image.url }}" alt="{{ project.title }}" class="h-full w-full object-cover transition duration-300 group-hover:scale-[1.03]">
+            {% else %}
+              <img src="/static/company/images.jpg" alt="{{ project.title }}" class="h-full w-full object-cover transition duration-300 group-hover:scale-[1.03]">
+            {% endif %}
+          </div>
+          <div class="p-6">
+            <h4 class="text-lg font-semibold text-slate-900">{{ project.title }}</h4>
+            <p class="mt-2 text-sm font-medium text-slate-500">{{ project.location }}</p>
+            <p class="mt-3 text-sm leading-7 text-slate-600">{{ project.description|truncatewords:18 }}</p>
+          </div>
+        </a>
+      {% empty %}
+        <div class="site-card rounded-[1.75rem] p-6 text-sm text-slate-600">No projects added yet.</div>
+      {% endfor %}
+    </div>
+
+    {# Testimonials under Projects section #}
+    <div class="mt-14">
+      <div class="mx-auto max-w-2xl text-center">
+        <p class="text-sm font-semibold uppercase tracking-[0.2em] text-accent-600">Testimonials</p>
+        <h3 class="mt-3 text-3xl font-semibold tracking-tight text-accent-700">Featured Testimonials</h3>
+      </div>
+
+      <div class="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {% for t in featured_testimonials %}
+          <article class="site-card rounded-[1.75rem] p-6">
+            <div class="flex items-start gap-4">
+              {% if t.image %}
+                <img src="{{ t.image.url }}" alt="{{ t.client_name }}" class="h-12 w-12 rounded-full object-cover border border-slate-200">
+              {% else %}
+                <div class="h-12 w-12 rounded-full bg-accent-50 flex items-center justify-center text-accent-700 font-bold">T</div>
+              {% endif %}
+
+              <div>
+                <h4 class="text-base font-semibold text-slate-900">{{ t.client_name }}</h4>
+                {% if t.company %}
+                  <p class="text-sm text-slate-600">{{ t.company }}</p>
+                {% endif %}
+                <div class="mt-2 flex items-center gap-1" aria-label="Rating: {{ t.rating }}/5">
+                  {% for i in "12345" %}
+                    {% if forloop.counter <= t.rating %}
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-accent-700" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.46c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.84-.197-1.54-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.47 8.719c-.783-.57-.38-1.81.588-1.81h3.46a1 1 0 00.951-.69l1.07-3.292z"/>
+                      </svg>
+                    {% else %}
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-slate-300" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.46c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.84-.197-1.54-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.47 8.719c-.783-.57-.38-1.81.588-1.81h3.46a1 1 0 00.951-.69l1.07-3.292z"/>
+                      </svg>
+                    {% endif %}
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+            <p class="mt-5 text-sm leading-7 text-slate-600">
+              {{ t.testimonial|truncatewords:30 }}
+            </p>
+          </article>
+        {% empty %}
+          <div class="site-card rounded-[1.75rem] p-6 text-sm text-slate-600 md:col-span-2 lg:col-span-3">
+            No testimonials available yet.
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+{% endblock %}
