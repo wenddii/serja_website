@@ -3,21 +3,25 @@
 {% block title %}Services | Serja Construction{% endblock %}
 
 {% block content %}
-  <section class="site-card rounded-[2rem] p-6 sm:p-8">
+  <section class="site-card rounded-[2rem] p-6 sm:p-8" data-aos="fade-up">
     <div class="max-w-2xl">
-      <p class="text-sm font-semibold uppercase tracking-[0.2em] text-accent-600">Services</p>
-      <h2 class="mt-3 text-4xl font-semibold tracking-tight text-slate-900">Simple, dependable service delivery.</h2>
-      <p class="mt-4 text-base leading-8 text-slate-600">We focus on a small set of core construction services so every project receives clear attention and disciplined execution.</p>
+      <p class="text-sm font-semibold uppercase tracking-[0.2em] text-accent-600" data-aos="fade-up" data-aos-delay="120">Services</p>
+      <h2 class="mt-3 text-4xl font-semibold tracking-tight text-slate-900" data-aos="fade-up" data-aos-delay="180">Simple, dependable service delivery.</h2>
+      <p class="mt-4 text-base leading-8 text-slate-600" data-aos="fade-up" data-aos-delay="240">We focus on a small set of core construction services so every project receives clear attention and disciplined execution.</p>
     </div>
   </section>
 
-  <section class="mt-8">
+  <section class="mt-8" data-aos="fade-up">
     <div class="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-      {% for service in services %}
-        <article class="site-card rounded-[1.75rem] p-6">
-          <div class="group flex h-11 w-11 items-center justify-center rounded-2xl bg-accent-50 text-accent-700 transition-colors hover:bg-accent-100">
+{% for service in services %}
+        {# Avoid unsupported Django template filter `mul`; use a constant delay value instead. #}
+        <article class="site-card rounded-[1.75rem] p-6" data-aos="fade-up" data-aos-delay="80">
+
+          <div class="group flex h-11 w-11 items-center justify-center rounded-2xl bg-accent-50 text-accent-700 transition-colors hover:bg-accent-100" data-aos="fade-up" data-aos-delay="80">
+
 
             <div class="flex h-5 w-5 items-center justify-center">
+
               {% with lucide_icon=service.icon|default:'wrench' %}
                 <i data-lucide="{{ lucide_icon }}" class="h-5 w-5 transition-colors group-hover:text-accent-800" aria-hidden="true"></i>
               {% endwith %}

@@ -4,23 +4,27 @@
 
 <section class="container mx-auto py-16">
 
-    <h1 class="text-4xl font-bold mb-10">
-        Our Machinery
-    </h1>
+    <h1 class="text-4xl font-bold mb-10" data-aos="fade-up">Our Machinery</h1>
 
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 
         {% for machine in machineries %}
 
-        <div class="bg-white rounded-xl shadow">
+        {# Avoid unsupported Django template filter `mul`; use a constant delay value instead. #}
+        <div class="bg-white rounded-xl shadow group" data-aos="fade-up" data-aos-delay="80">
+
+
 
             <img
                 src="{{ machine.image.url }}"
                 alt="{{ machine.name }}"
-                class="w-full h-64 object-cover rounded-t-xl"
+                class="w-full h-64 object-cover rounded-t-xl transition duration-300 group-hover:scale-[1.03]"
+                data-aos="zoom-in"
             >
 
-            <div class="p-6">
+
+            <div class="p-6" data-aos="fade-up" data-aos-delay="140">
+
 
                 <h2 class="text-2xl font-semibold">
                     {{ machine.name }}

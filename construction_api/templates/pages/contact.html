@@ -4,12 +4,13 @@
 
 {% block content %}
   <section class="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
-    <div class="site-card rounded-[2rem] p-6 sm:p-8">
-      <p class="text-sm font-semibold uppercase tracking-[0.2em] text-accent-600">Contact</p>
-      <h2 class="mt-3 text-4xl font-semibold tracking-tight text-slate-900">Start a project conversation.</h2>
-      <p class="mt-4 text-base leading-8 text-slate-600">Share your project details and we will respond with a clear, practical proposal.</p>
+    <div class="site-card rounded-[2rem] p-6 sm:p-8" data-aos="fade-left" data-aos-delay="120">
+      <p class="text-sm font-semibold uppercase tracking-[0.2em] text-accent-600" data-aos="fade-left" data-aos-delay="160">Contact</p>
+      <h2 class="mt-3 text-4xl font-semibold tracking-tight text-slate-900" data-aos="fade-left" data-aos-delay="200">Start a project conversation.</h2>
+      <p class="mt-4 text-base leading-8 text-slate-600" data-aos="fade-left" data-aos-delay="240">Share your project details and we will respond with a clear, practical proposal.</p>
 
       <form method="post" class="mt-8">
+
         {% csrf_token %}
 
         <div class="grid gap-5 sm:grid-cols-2">
@@ -46,8 +47,9 @@
       </form>
     </div>
 
-    <div class="space-y-6">
-      <div class="site-card rounded-[2rem] p-6 sm:p-8">
+    <div class="space-y-6" data-aos="fade-right" data-aos-delay="160">
+      <div class="site-card rounded-[2rem] p-6 sm:p-8" data-aos="fade-right" data-aos-delay="200">
+
         <h3 class="text-2xl font-semibold tracking-tight text-slate-900">Contact details</h3>
         <div class="mt-6 space-y-4 text-sm text-slate-600">
           <div>
@@ -65,7 +67,8 @@
         </div>
       </div>
 
-      <div class="site-card overflow-hidden rounded-[2rem]">
+      <div class="site-card overflow-hidden rounded-[2rem]" data-aos="fade-right" data-aos-delay="260">
+
         <iframe
           title="Serja Construction map"
           src="https://www.google.com/maps?q=Addis%20Ababa%20Ethiopia&output=embed"
@@ -75,7 +78,8 @@
         ></iframe>
       </div>
 
-      <div class="site-card rounded-[2rem] p-6 sm:p-8">
+      <div class="site-card rounded-[2rem] p-6 sm:p-8" data-aos="fade-right" data-aos-delay="320">
+
         <h3 class="text-lg font-semibold tracking-tight text-slate-900">Recent Messages</h3>
         <div class="mt-5 space-y-3">
           {% for message in recent_messages %}

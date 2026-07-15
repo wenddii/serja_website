@@ -1,0 +1,23 @@
+Planned UI/UX redesign (Tailwind, CDN)
+
+Files to update:
+1) construction_api/templates/base.html
+2) construction_api/templates/pages/home.html
+3) construction_api/templates/pages/projects.html
+4) construction_api/templates/pages/project_detail.html
+5) construction_api/templates/pages/services.html
+6) construction_api/templates/pages/about.html
+7) construction_api/templates/pages/contact.html
+
+Global goals:
+- Keep ALL Django template tags/variables/blocks/loops exactly where they are.
+- Tailwind-only styling: wrap/restructure markup around existing template statements.
+- Modern premium construction/engineering corporate vibe.
+
+Implementation notes:
+- Use Tailwind CDN in base.html.
+- Add global layout: sticky glass navbar, consistent container width.
+- Message section styled with Tailwind, without removing existing messages loop.
+- Contact form: keep {{ form.name }}, {{ form.email }}, {{ form.phone }}, {{ form.message }} and csrf_token; style via wrapper classes.
+- Use safe Tailwind classes (no custom build step required).
+
