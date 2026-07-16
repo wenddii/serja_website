@@ -17,7 +17,8 @@ SECRET_KEY = os.environ.get(
     "django-insecure-dev-key"
 )
 
-DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
+
+DEBUG = True
 
 
 ALLOWED_HOSTS = [
@@ -144,19 +145,23 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 
 # Media (Cloudinary)
 
-MEDIA_URL = "/media/"
-
-
 CLOUDINARY_STORAGE = {
     "CLOUD_NAME": os.environ.get("CLOUDINARY_CLOUD_NAME"),
     "API_KEY": os.environ.get("CLOUDINARY_API_KEY"),
     "API_SECRET": os.environ.get("CLOUDINARY_API_SECRET"),
 }
 
+# Ensure Django uses Cloudinary for media in production.
 
-DEFAULT_FILE_STORAGE = (
-    "cloudinary_storage.storage.MediaCloudinaryStorage"
-)
+STORAGES = {
+    "default": {
+        "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage",
+    },
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
+
 
 
 # Email settings
