@@ -42,69 +42,71 @@
     </div>
   </section>
 
-  <section class="mt-12 sm:mt-14">
-    <div class="relative left-1/2 right-1/2 w-[100vw] -translate-x-1/2 px-4 sm:px-6 lg:px-8">
-      <div class="w-full">
-        <div class="grid gap-4 sm:gap-5 sm:grid-cols-2 lg:grid-cols-4" aria-hidden="true">
+  {# Middle content background (subtle light blue/gray, improves visual balance) #}
+  <div class="relative overflow-hidden">
+    <div class="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-[#eef5ff] via-[#f6f8fc] to-white"></div>
+
+    <section class="mt-12 sm:mt-14">
+      <div class="relative left-1/2 right-1/2 w-[100vw] -translate-x-1/2 px-4 sm:px-6 lg:px-8">
+        <div class="w-full">
+          <div class="grid gap-4 sm:gap-5 sm:grid-cols-2 lg:grid-cols-4" aria-hidden="true">
           <div class="site-card rounded-[1.75rem] p-6 text-center">
-          <div class="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-50 via-emerald-100 to-teal-100 text-emerald-700">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-6 w-6" aria-hidden="true">
-              <path d="M4 3a1 1 0 0 1 1-1h9a1 1 0 0 1 1 1v2h2a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V3zm2 2v14h10V8h-2a1 1 0 0 1-1-1V5H6z"/>
-              <path d="M8 12a1 1 0 0 1 1-1h6a1 1 0 1 1 0 2H9a1 1 0 0 1-1-1zM8 16a1 1 0 0 1 1-1h6a1 1 0 1 1 0 2H9a1 1 0 0 1-1-1z"/>
-            </svg>
+            <div class="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-50 via-emerald-100 to-teal-100 text-emerald-700">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-6 w-6" aria-hidden="true">
+                <path d="M4 3a1 1 0 0 1 1-1h9a1 1 0 0 1 1 1v2h2a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V3zm2 2v14h10V8h-2a1 1 0 0 1-1-1V5H6z"/>
+                <path d="M8 12a1 1 0 0 1 1-1h6a1 1 0 1 1 0 2H9a1 1 0 0 1-1-1zM8 16a1 1 0 0 1 1-1h6a1 1 0 1 1 0 2H9a1 1 0 0 1-1-1z"/>
+              </svg>
+            </div>
+            <div class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">15+</div>
+            <p class="mt-2 text-sm font-semibold text-slate-700">Completed projects</p>
           </div>
-          <div class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">15+</div>
-          <p class="mt-2 text-sm font-semibold text-slate-700">Completed projects</p>
-        </div>
 
-        <div class="site-card rounded-[1.75rem] p-6 text-center">
-          <div class="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-amber-50 via-orange-100 to-yellow-100 text-amber-700">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-6 w-6" aria-hidden="true">
-              <path d="M12 2a1 1 0 0 1 1 1v1.07a9.003 9.003 0 0 1 6.36 3.72 1 1 0 0 1-1.64 1.15A7 7 0 1 0 19 12a7.01 7.01 0 0 0-1.49-4.3 1 1 0 1 1 1.6-1.2A9 9 0 1 1 11 3.07V3a1 1 0 0 1 1-1z"/>
-              <path d="M12 7a1 1 0 0 1 1 1v4.26l2.03 1.17a1 1 0 1 1-1 1.73l-2.53-1.46A1 1 0 0 1 11 13V8a1 1 0 0 1 1-1z"/>
-            </svg>
+          <div class="site-card rounded-[1.75rem] p-6 text-center">
+            <div class="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-amber-50 via-orange-100 to-yellow-100 text-amber-700">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-6 w-6" aria-hidden="true">
+                <path d="M12 2a1 1 0 0 1 1 1v1.07a9.003 9.003 0 0 1 6.36 3.72 1 1 0 0 1-1.64 1.15A7 7 0 1 0 19 12a7.01 7.01 0 0 0-1.49-4.3 1 1 0 1 1 1.6-1.2A9 9 0 1 1 11 3.07V3a1 1 0 0 1 1-1z"/>
+                <path d="M12 7a1 1 0 0 1 1 1v4.26l2.03 1.17a1 1 0 1 1-1 1.73l-2.53-1.46A1 1 0 0 1 11 13V8a1 1 0 0 1 1-1z"/>
+              </svg>
+            </div>
+            <div class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">15+</div>
+            <p class="mt-2 text-sm font-semibold text-slate-700">Years of experience</p>
           </div>
-          <div class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">15+</div>
-          <p class="mt-2 text-sm font-semibold text-slate-700">Years of experience</p>
-        </div>
 
-        <div class="site-card rounded-[1.75rem] p-6 text-center">
-          <div class="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-indigo-50 via-indigo-100 to-purple-100 text-indigo-700">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-6 w-6" aria-hidden="true">
-              <path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5z"/>
-              <path d="M3 22a9 9 0 0 1 18 0 1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/>
-            </svg>
+          <div class="site-card rounded-[1.75rem] p-6 text-center">
+            <div class="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-indigo-50 via-indigo-100 to-purple-100 text-indigo-700">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-6 w-6" aria-hidden="true">
+                <path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5z"/>
+                <path d="M3 22a9 9 0 0 1 18 0 1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/>
+              </svg>
+            </div>
+            <div class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">100+</div>
+            <p class="mt-2 text-sm font-semibold text-slate-700">Satisfied customers</p>
           </div>
-          <div class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">100+</div>
-          <p class="mt-2 text-sm font-semibold text-slate-700">Satisfied customers</p>
-        </div>
 
-        <div class="site-card rounded-[1.75rem] p-6 text-center">
-          <div class="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-sky-50 via-cyan-100 to-blue-100 text-sky-700">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-6 w-6" aria-hidden="true">
-              <path d="M4 13a1 1 0 0 1 1-1h1V9a3 3 0 0 1 3-3h3V4a1 1 0 1 1 2 0v2h3a1 1 0 0 1 1 1v2h1a1 1 0 0 1 0 2h-1v2a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1zm4-5v2h10V8h-10z"/>
-              <path d="M6 19a2 2 0 1 0 4 0 2 2 0 0 0-4 0zM16 19a2 2 0 1 0 4 0 2 2 0 0 0-4 0z"/>
-            </svg>
+          <div class="site-card rounded-[1.75rem] p-6 text-center">
+            <div class="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-sky-50 via-cyan-100 to-blue-100 text-sky-700">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-6 w-6" aria-hidden="true">
+                <path d="M4 13a1 1 0 0 1 1-1h1V9a3 3 0 0 1 3-3h3V4a1 1 0 1 1 2 0v2h3a1 1 0 0 1 1 1v2h1a1 1 0 0 1 0 2h-1v2a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1zm4-5v2h10V8h-10z"/>
+                <path d="M6 19a2 2 0 1 0 4 0 2 2 0 0 0-4 0zM16 19a2 2 0 1 0 4 0 2 2 0 0 0-4 0z"/>
+              </svg>
+            </div>
+            <div class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">20+</div>
+            <p class="mt-2 text-sm font-semibold text-slate-700">Heavy machines</p>
           </div>
-          <div class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">20+</div>
-          <p class="mt-2 text-sm font-semibold text-slate-700">Heavy machines</p>
+          </div>
         </div>
-      </div>
-    </div>
-  </section>
+      </section>
 
-  <section class="mt-12 sm:mt-14">
-    <div class="w-full text-center">
-      <h3 class="mt-3 text-2xl leading-[1.15] sm:text-3xl font-extrabold tracking-tight text-accent-700">Why choose Serja?</h3>
-    </div>
-
-    <div class="mt-7 grid gap-4 sm:grid-cols-2">
+      <div class="mt-7 grid gap-4 sm:grid-cols-2">
       <div class="site-card rounded-[1.5rem] p-5 sm:p-6">
         <div class="flex items-start justify-between gap-4">
           <h4 class="text-lg font-semibold text-slate-900">Clear plans</h4>
           <span class="mt-1 inline-flex h-7 w-7 items-center justify-center rounded-full bg-accent-50 text-accent-700">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4" aria-hidden="true">
-              <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L10.94 10 7.23 6.29a.75.75 0 011.06-1.06l4.25 4.25a.75.75 0 010 1.06l-4.25 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" aria-hidden="true">
+              <path d="M7 2h6a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Z"/>
+              <path d="M8 7h5"/>
+              <path d="M8 11h3"/>
+              <path d="M5 8l1.5 1.5L9 7"/>
             </svg>
           </span>
         </div>
@@ -115,8 +117,11 @@
         <div class="flex items-start justify-between gap-4">
           <h4 class="text-lg font-semibold text-slate-900">On-time delivery</h4>
           <span class="mt-1 inline-flex h-7 w-7 items-center justify-center rounded-full bg-accent-50 text-accent-700">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4" aria-hidden="true">
-              <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L10.94 10 7.23 6.29a.75.75 0 011.06-1.06l4.25 4.25a.75.75 0 010 1.06l-4.25 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" aria-hidden="true">
+              <path d="M10 18a8 8 0 1 0-8-8 8 8 0 0 0 8 8Z"/>
+              <path d="M10 5v5l3 2"/>
+              <path d="M13 2h4"/>
+              <path d="M15 2v4"/>
             </svg>
           </span>
         </div>
@@ -127,8 +132,11 @@
         <div class="flex items-start justify-between gap-4">
           <h4 class="text-lg font-semibold text-slate-900">Skilled teams</h4>
           <span class="mt-1 inline-flex h-7 w-7 items-center justify-center rounded-full bg-accent-50 text-accent-700">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4" aria-hidden="true">
-              <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L10.94 10 7.23 6.29a.75.75 0 011.06-1.06l4.25 4.25a.75.75 0 010 1.06l-4.25 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" aria-hidden="true">
+              <path d="M2 11c1.2-4.6 4.7-7 8-7s6.8 2.4 8 7"/>
+              <path d="M6 11v3a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-3"/>
+              <path d="M8.5 11a1.5 1.5 0 1 1 3 0"/>
+              <path d="M4 11h12"/>
             </svg>
           </span>
         </div>
@@ -139,8 +147,10 @@
         <div class="flex items-start justify-between gap-4">
           <h4 class="text-lg font-semibold text-slate-900">Clean workmanship</h4>
           <span class="mt-1 inline-flex h-7 w-7 items-center justify-center rounded-full bg-accent-50 text-accent-700">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4" aria-hidden="true">
-              <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L10.94 10 7.23 6.29a.75.75 0 011.06-1.06l4.25 4.25a.75.75 0 010 1.06l-4.25 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" aria-hidden="true">
+              <path d="M2 10.5 9.5 3l2.5 2.5-7.5 7.5L2 10.5Z"/>
+              <path d="M12 5l3.5-3.5a2 2 0 0 1 2.8 2.8L14 8.5"/>
+              <path d="M9 6l5 5"/>
             </svg>
           </span>
         </div>
@@ -151,8 +161,10 @@
         <div class="flex items-start justify-between gap-4">
           <h4 class="text-lg font-semibold text-slate-900">Transparent updates</h4>
           <span class="mt-1 inline-flex h-7 w-7 items-center justify-center rounded-full bg-accent-50 text-accent-700">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4" aria-hidden="true">
-              <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L10.94 10 7.23 6.29a.75.75 0 011.06-1.06l4.25 4.25a.75.75 0 010 1.06l-4.25 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" aria-hidden="true">
+              <path d="M6 6h8"/>
+              <path d="M6 10h5"/>
+              <path d="M4 14V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H9l-5 3v-3Z"/>
             </svg>
           </span>
         </div>
@@ -162,9 +174,10 @@
       <div class="site-card rounded-[1.5rem] p-6">
         <div class="flex items-start justify-between gap-4">
           <h4 class="text-lg font-semibold text-slate-900">Trusted delivery</h4>
-          <span class="mt-1 inline-flex h-7 w-7 items-center justify-center rounded-full bg-accent-50 text-accent-700">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4" aria-hidden="true">
-              <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L10.94 10 7.23 6.29a.75.75 0 011.06-1.06l4.25 4.25a.75.75 0 010 1.06l-4.25 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+            <span class="mt-1 inline-flex h-7 w-7 items-center justify-center rounded-full bg-accent-50 text-accent-700">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" aria-hidden="true">
+              <path d="M10 2 2.5 5v6.2c0 4.3 3 6.8 7.5 7.8 4.5-1 7.5-3.5 7.5-7.8V5L10 2Z"/>
+              <path d="m7.6 10.2 1.6 1.6 3.4-3.6"/>
             </svg>
           </span>
         </div>
@@ -172,6 +185,7 @@
       </div>
     </div>
   </section>
+</div>
 
   <section class="mt-12 sm:mt-14">
     <div class="w-full">
