@@ -205,12 +205,48 @@
       box-shadow: 0 16px 40px rgba(17, 24, 39, 0.08);
     }
   </style>
+
+  <script>
+    // Mobile menu: no URL/JS/Django route changes—only toggle visibility.
+    document.addEventListener('DOMContentLoaded', () => {
+      const btn = document.getElementById('mobile-menu-button');
+      const panel = document.getElementById('mobile-menu');
+      if (!btn || !panel) return;
+
+      const setExpanded = (expanded) => {
+        btn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+      };
+
+      btn.addEventListener('click', () => {
+        const isOpen = btn.getAttribute('aria-expanded') === 'true';
+        setExpanded(!isOpen);
+        panel.classList.toggle('opacity-100', !isOpen);
+        panel.classList.toggle('pointer-events-auto', !isOpen);
+      });
+
+      // Close on link click (mobile)
+      panel.querySelectorAll('a').forEach((a) => {
+        a.addEventListener('click', () => {
+          setExpanded(false);
+          panel.classList.add('opacity-0');
+          panel.classList.remove('opacity-100');
+          panel.classList.remove('pointer-events-auto');
+        });
+      });
+
+      // Ensure initial state
+      setExpanded(false);
+      panel.classList.add('opacity-0');
+      panel.classList.remove('opacity-100');
+      panel.classList.remove('pointer-events-auto');
+    });
+  </script>
 </head>
 <body class="min-h-screen bg-white text-slate-900 antialiased">
   <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-50 focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:text-slate-900 focus:outline focus:outline-2 focus:outline-accent-500">Skip to content</a>
 
 <header id="site-header" class="sticky top-0 z-50 border-b border-slate-200/70 bg-white/90 backdrop-blur-xl transition-shadow">
-    <div class="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-4">
+      <div class="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-4">
       <div class="flex items-center gap-3">
         <div class="grid h-11 w-11 place-items-center rounded-2xl bg-accent-500 text-white soft-shadow">
           <span class="text-lg font-extrabold tracking-tight">S</span>
@@ -223,17 +259,75 @@
         </div>
       </div>
 
-      <nav class="hidden items-center gap-7 md:flex">
-        <a class="nav-link text-sm font-semibold" href="{% url 'home' %}">Home</a>
-        <a class="nav-link text-sm font-semibold" href="{% url 'about' %}">About</a>
-        <a class="nav-link text-sm font-semibold" href="{% url 'services' %}">Services</a>
-        <a class="nav-link text-sm font-semibold" href="{% url 'projects' %}">Projects</a>
-        <a class="nav-link text-sm font-semibold" href="{% url 'machinery:list' %}">Machinery</a>
-        <a class="nav-link text-sm font-semibold" href="{% url 'contact' %}">Contact</a>
+      <nav class="hidden items-center gap-6 md:flex" aria-label="Primary">
+        <a class="nav-link nav-item flex items-center gap-2 text-sm font-semibold" href="{% url 'home' %}" aria-current="{% if request.resolver_match.url_name == 'home' %}page{% endif %}">
+          <i data-lucide="home" class="h-4 w-4" aria-hidden="true"></i>
+          <span class="whitespace-nowrap">Home</span>
+        </a>
+        <a class="nav-link nav-item flex items-center gap-2 text-sm font-semibold" href="{% url 'about' %}" aria-current="{% if request.resolver_match.url_name == 'about' %}page{% endif %}">
+          <i data-lucide="building-2" class="h-4 w-4" aria-hidden="true"></i>
+          <span class="whitespace-nowrap">About</span>
+        </a>
+        <a class="nav-link nav-item flex items-center gap-2 text-sm font-semibold" href="{% url 'services' %}" aria-current="{% if request.resolver_match.url_name == 'services' %}page{% endif %}">
+          <i data-lucide="wrench" class="h-4 w-4" aria-hidden="true"></i>
+          <span class="whitespace-nowrap">Services</span>
+        </a>
+        <a class="nav-link nav-item flex items-center gap-2 text-sm font-semibold" href="{% url 'projects' %}" aria-current="{% if request.resolver_match.url_name == 'projects' %}page{% endif %}">
+          <i data-lucide="hard-hat" class="h-4 w-4" aria-hidden="true"></i>
+          <span class="whitespace-nowrap">Projects</span>
+        </a>
+        <a class="nav-link nav-item flex items-center gap-2 text-sm font-semibold" href="{% url 'machinery:list' %}" aria-current="{% if request.resolver_match.url_name == 'list' %}page{% endif %}">
+          <i data-lucide="settings" class="h-4 w-4" aria-hidden="true"></i>
+          <span class="whitespace-nowrap">Machinery</span>
+        </a>
+        <a class="nav-link nav-item flex items-center gap-2 text-sm font-semibold" href="{% url 'contact' %}" aria-current="{% if request.resolver_match.url_name == 'contact' %}page{% endif %}">
+          <i data-lucide="mail" class="h-4 w-4" aria-hidden="true"></i>
+          <span class="whitespace-nowrap">Contact</span>
+        </a>
       </nav>
 
+      <div id="mobile-menu" class="pointer-events-none absolute left-0 top-[72px] w-full origin-top opacity-0 translate-y-[-8px] transition-all duration-200 md:hidden">
+        <div class="mx-auto max-w-6xl px-4">
+          <div class="site-card rounded-[1.25rem] overflow-hidden border border-slate-200/70 bg-white/95 shadow-sm">
+            <nav class="flex flex-col divide-y divide-slate-100">
+              <a class="nav-link nav-item flex items-center gap-3 px-4 py-4 text-sm font-semibold" href="{% url 'home' %}" aria-current="{% if request.resolver_match.url_name == 'home' %}page{% endif %}">
+                <i data-lucide="home" class="h-4 w-4" aria-hidden="true"></i>
+                <span>Home</span>
+              </a>
+              <a class="nav-link nav-item flex items-center gap-3 px-4 py-4 text-sm font-semibold" href="{% url 'about' %}" aria-current="{% if request.resolver_match.url_name == 'about' %}page{% endif %}">
+                <i data-lucide="building-2" class="h-4 w-4" aria-hidden="true"></i>
+                <span>About</span>
+              </a>
+              <a class="nav-link nav-item flex items-center gap-3 px-4 py-4 text-sm font-semibold" href="{% url 'services' %}" aria-current="{% if request.resolver_match.url_name == 'services' %}page{% endif %}">
+                <i data-lucide="wrench" class="h-4 w-4" aria-hidden="true"></i>
+                <span>Services</span>
+              </a>
+              <a class="nav-link nav-item flex items-center gap-3 px-4 py-4 text-sm font-semibold" href="{% url 'projects' %}" aria-current="{% if request.resolver_match.url_name == 'projects' %}page{% endif %}">
+                <i data-lucide="hard-hat" class="h-4 w-4" aria-hidden="true"></i>
+                <span>Projects</span>
+              </a>
+              <a class="nav-link nav-item flex items-center gap-3 px-4 py-4 text-sm font-semibold" href="{% url 'machinery:list' %}" aria-current="{% if request.resolver_match.url_name == 'list' %}page{% endif %}">
+                <i data-lucide="settings" class="h-4 w-4" aria-hidden="true"></i>
+                <span>Machinery</span>
+              </a>
+              <a class="nav-link nav-item flex items-center gap-3 px-4 py-4 text-sm font-semibold" href="{% url 'contact' %}" aria-current="{% if request.resolver_match.url_name == 'contact' %}page{% endif %}">
+                <i data-lucide="mail" class="h-4 w-4" aria-hidden="true"></i>
+                <span>Contact</span>
+              </a>
+              <a href="{% url 'contact' %}" class="button-primary mx-4 mb-4 mt-2 justify-center px-5 py-3 text-sm font-semibold">
+                Contact Us
+              </a>
+            </nav>
+          </div>
+        </div>
+      </div>
+
       <div class="flex items-center gap-2">
-        <a href="{% url 'contact' %}" class="button-primary px-5 py-3 sm:px-6">
+        <button id="mobile-menu-button" type="button" class="inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white/80 p-2 text-slate-800 shadow-sm md:hidden" aria-controls="mobile-menu" aria-expanded="false" aria-label="Open menu">
+          <i data-lucide="menu" class="h-5 w-5" aria-hidden="true"></i>
+        </button>
+
+        <a href="{% url 'contact' %}" class="button-primary hidden px-5 py-3 sm:px-6 md:inline-flex">
           Contact Us
         </a>
       </div>
