@@ -4,7 +4,7 @@
 
 {% block content %}
   <section class="site-card overflow-hidden rounded-[2rem]" data-aos="fade-up">
-    <div class="grid min-h-[calc(100vh-88px)] lg:grid-cols-2 lg:items-stretch">
+    <div class="grid min-h-[540px] lg:min-h-[calc(100vh-88px)] lg:grid-cols-2 lg:items-stretch">
       <div class="p-6 sm:p-8 lg:p-12">
         <p class="inline-flex rounded-full bg-accent-50 px-4 py-2 text-xs font-semibold tracking-wide text-accent-700" data-aos="fade-up" data-aos-delay="100">
           Serja Construction &amp; General Trade PLC
@@ -142,17 +142,16 @@
 
   <section class="mt-12 sm:mt-14">
     <div class="mx-auto max-w-2xl">
-      <div class="flex items-center justify-between">
-        <div class="w-0 flex-1" aria-hidden="true"></div>
+        <div class="flex flex-col items-center gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <div class="hidden sm:block sm:w-0 sm:flex-1" aria-hidden="true"></div>
 
-        <h3 class="text-center whitespace-nowrap flex-1 text-2xl font-semibold tracking-tight text-accent-700">Featured Services</h3>
+        <h3 class="text-center text-2xl font-semibold tracking-tight text-accent-700 sm:whitespace-nowrap sm:flex-1">Featured Services</h3>
 
-        <div class="flex-1 flex justify-end">
-          <a href="{% url 'services' %}" class="button-secondary px-4 py-2 text-xs font-semibold">View services</a>
+        <div class="w-full flex justify-center sm:flex-1 sm:justify-end">
+          <a href="{% url 'services' %}" class="button-secondary w-full sm:w-auto px-4 py-2 text-xs font-semibold">View services</a>
         </div>
       </div>
     </div>
-
 
     <div class="mt-7 grid gap-5 sm:gap-6 md:grid-cols-2 xl:grid-cols-3">
       {% for service in featured_services %}
@@ -174,15 +173,15 @@
     </div>
   </section>
 
- <section class="mt-14">
+  <section class="mt-14">
     <div class="mx-auto max-w-2xl">
-      <div class="flex items-center justify-between">
-        <div class="w-0 flex-1" aria-hidden="true"></div>
+      <div class="flex flex-col items-center gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <div class="hidden sm:block sm:w-0 sm:flex-1" aria-hidden="true"></div>
 
-        <h3 class="text-center whitespace-nowrap flex-1 text-2xl font-semibold tracking-tight text-accent-700">Featured Projects</h3>
+        <h3 class="text-center text-2xl font-semibold tracking-tight text-accent-700 sm:whitespace-nowrap sm:flex-1">Featured Projects</h3>
 
-        <div class="flex-1 flex justify-end">
-          <a href="{% url 'services' %}" class="button-secondary px-4 py-2 text-xs font-semibold">View services</a>
+        <div class="w-full flex justify-center sm:flex-1 sm:justify-end">
+          <a href="{% url 'services' %}" class="button-secondary w-full sm:w-auto px-4 py-2 text-xs font-semibold">View services</a>
         </div>
       </div>
     </div>
