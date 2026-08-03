@@ -4,63 +4,70 @@
 {% block title %}About | Serja Construction{% endblock %}
 
 {% block content %}
-  <section class="py-12 sm:py-16">
-    <div class="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="grid gap-8 lg:grid-cols-[1.08fr_0.92fr] lg:items-center">
-        <div data-aos="fade-up" data-aos-delay="80" class="min-w-0">
-          <p class="text-sm font-semibold uppercase tracking-[0.2em] text-accent-600" data-aos="fade-up" data-aos-delay="100">About</p>
 
-          <h2 class="mt-3 text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl" data-aos="fade-up" data-aos-delay="160">
-            A practical construction company with a clean, professional standard.
-          </h2>
+<section class="sec-dark" style="position:relative;overflow:hidden;">
+  <div style="position:absolute;inset:0;background:linear-gradient(135deg,var(--c-dark) 0%,var(--c-surface) 100%);" aria-hidden="true"></div>
+  <div style="position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--c-border),transparent);" aria-hidden="true"></div>
 
-          <p class="mt-5 max-w-2xl text-base leading-8 text-slate-600 sm:text-lg sm:leading-8" data-aos="fade-up" data-aos-delay="220">
-            Serja Construction &amp; General Trade PLC delivers reliable building and trade services with disciplined execution, clear communication, and consistent quality.
-          </p>
+  <div class="container" style="position:relative;z-index:1;padding-top:8rem;padding-bottom:5rem;">
+    <div style="max-width:42rem;" data-aos="fade-up">
+      <p class="eyebrow" data-aos="fade-up" data-aos-delay="100">About</p>
+      <h1 style="margin-top:0.75rem;font-size:clamp(2rem,5vw,3.5rem);font-weight:700;color:var(--c-heading);" data-aos="fade-up" data-aos-delay="180">
+        A practical construction company with a clean, professional standard.
+      </h1>
+      <div class="gold-line" data-aos="fade-up" data-aos-delay="240"></div>
+      <p style="margin-top:2rem;font-size:1.0625rem;line-height:1.8;color:var(--c-body);max-width:36rem;" data-aos="fade-up" data-aos-delay="300">
+        Serja Construction &amp; General Trade PLC delivers reliable building and trade services with disciplined execution, clear communication, and consistent quality.
+      </p>
+    </div>
+  </div>
+</section>
 
-          <div class="mt-10" data-aos="fade-up" data-aos-delay="240">
-            {% if company %}
-              <div class="site-card rounded-[1.75rem] p-6 sm:p-7" data-aos="fade-up" data-aos-delay="300">
-                <p class="text-sm font-semibold uppercase tracking-[0.2em] text-accent-600">Company Profile</p>
-                <h3 class="mt-3 text-2xl font-bold text-slate-900 sm:text-2xl">{{ company.name }}</h3>
+<section class="sec-light sec-pad">
+  <div class="container">
+    <div style="display:grid;gap:3rem;" class="lg:grid-cols-2" data-aos="fade-up">
 
-                <p class="mt-4 text-sm leading-7 text-slate-600 sm:text-base sm:leading-7">
-                  {{ company.description }}
-                </p>
+      <div>
+        {% if company %}
+          <div class="card" style="cursor:default;">
+            <div class="card__body" style="padding:2rem;">
+              <p class="eyebrow">Company Profile</p>
+              <h2 style="margin-top:0.75rem;font-size:1.75rem;font-weight:700;">{{ company.name }}</h2>
+              <div class="gold-line"></div>
 
-                <div class="mt-6 grid gap-5 sm:grid-cols-2">
-                  <div>
-                    <p class="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">Address</p>
-                    <p class="mt-2 text-sm text-slate-800">{{ company.address }}</p>
-                  </div>
-                  <div>
-                    <p class="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">Phone</p>
-                    <p class="mt-2 text-sm text-slate-800">{{ company.phone }}</p>
-                  </div>
-                  <div class="sm:col-span-2">
-                    <p class="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">Email</p>
-                    <p class="mt-2 text-sm text-slate-800">{{ company.email }}</p>
-                  </div>
+              <p style="margin-top:1.5rem;font-size:0.9375rem;line-height:1.8;color:#52525e;">
+                {{ company.description }}
+              </p>
+
+              <div style="margin-top:2rem;display:grid;gap:1.5rem;grid-template-columns:1fr 1fr;">
+                <div>
+                  <p style="font-size:0.75rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--c-gold);margin-bottom:0.5rem;">Address</p>
+                  <p style="font-size:0.875rem;color:#1a1a1e;">{{ company.address }}</p>
+                </div>
+                <div>
+                  <p style="font-size:0.75rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--c-gold);margin-bottom:0.5rem;">Phone</p>
+                  <p style="font-size:0.875rem;color:#1a1a1e;">{{ company.phone }}</p>
+                </div>
+                <div style="grid-column:1/-1;">
+                  <p style="font-size:0.75rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--c-gold);margin-bottom:0.5rem;">Email</p>
+                  <p style="font-size:0.875rem;color:#1a1a1e;">{{ company.email }}</p>
                 </div>
               </div>
-            {% endif %}
+            </div>
           </div>
-        </div>
-
-        <div
-          class="site-card overflow-hidden rounded-[2rem]"
-          data-aos="fade-left"
-          data-aos-delay="120"
-        >
-          <div class="relative h-72 sm:h-80 lg:h-[26rem]">
-            <img
-              src="{% if company.logo %}{{ company.logo.url }}{% else %}{% static 'company/images.jpg' %}{% endif %}"
-              alt="Serja Construction team"
-              class="absolute inset-0 h-full w-full object-cover"
-            >
-          </div>
-        </div>
+        {% endif %}
       </div>
+
+      <div class="img-frame" style="border-radius:var(--r-2xl);overflow:hidden;aspect-ratio:4/3;" data-aos="fade-left" data-aos-delay="120">
+        <img
+          src="{% if company.logo %}{{ company.logo.url }}{% else %}{% static 'company/images.jpg' %}{% endif %}"
+          alt="Serja Construction team"
+          style="width:100%;height:100%;object-fit:cover;"
+        >
+      </div>
+
     </div>
-  </section>
+  </div>
+</section>
+
 {% endblock %}

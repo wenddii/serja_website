@@ -3,59 +3,57 @@
 {% block title %}Projects | Serja Construction{% endblock %}
 
 {% block content %}
-  <section class="site-card rounded-[2rem] p-6 sm:p-8" data-aos="fade-up">
-    <div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between" data-aos="fade-up" data-aos-delay="120">
-      <div data-aos="fade-up" data-aos-delay="160">
-        <p class="text-sm font-semibold uppercase tracking-[0.2em] text-accent-600">Projects</p>
-        <h2 class="mt-3 text-4xl font-semibold tracking-tight text-slate-900">Selected work</h2>
-        <p class="mt-4 text-base leading-8 text-slate-600">A concise view of completed and active projects.</p>
+
+<section class="sec-dark" style="position:relative;overflow:hidden;">
+  <div style="position:absolute;inset:0;background:linear-gradient(135deg,var(--c-dark) 0%,var(--c-surface) 100%);" aria-hidden="true"></div>
+  <div style="position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--c-border),transparent);" aria-hidden="true"></div>
+
+  <div class="container" style="position:relative;z-index:1;padding-top:8rem;padding-bottom:5rem;">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:1.5rem;">
+      <div style="max-width:36rem;" data-aos="fade-up">
+        <p class="eyebrow">Projects</p>
+        <h1 style="margin-top:0.75rem;font-size:clamp(2rem,5vw,3.5rem);font-weight:700;color:var(--c-heading);">Selected Work</h1>
+        <div class="gold-line"></div>
+        <p style="margin-top:2rem;font-size:1.0625rem;line-height:1.8;color:var(--c-body);">A concise view of completed and active projects.</p>
       </div>
-      <div class="text-sm font-medium text-slate-500" data-aos="fade-up" data-aos-delay="200">Total projects: {{ project_count }}</div>
+      <p style="font-size:0.875rem;font-weight:500;color:var(--c-subtle);" data-aos="fade-up" data-aos-delay="120">Total projects: {{ project_count }}</p>
     </div>
-  </section>
+  </div>
+</section>
 
+<section class="sec-light sec-pad">
+  <div class="container">
 
-  <section class="mt-8">
-    <div class="mb-6 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-      <div class="flex flex-wrap gap-2">
-        <a href="{% url 'projects' %}" class="button-secondary px-4 py-2 text-xs font-semibold">All</a>
-        {% for cat in project_categories %}
-          <a href="{% url 'projects' %}?category={{ cat }}" class="button-secondary px-4 py-2 text-xs font-semibold">{{ cat }}</a>
-        {% endfor %}
-      </div>
+    <div style="margin-bottom:2.5rem;display:flex;flex-wrap:wrap;gap:0.5rem;" data-aos="fade-up">
+      <a href="{% url 'projects' %}" class="btn btn-outline" style="padding:0.5rem 1.25rem;min-height:2.25rem;font-size:0.8125rem;border-radius:2rem;">All</a>
+      {% for cat in project_categories %}
+        <a href="{% url 'projects' %}?category={{ cat }}" class="btn btn-outline" style="padding:0.5rem 1.25rem;min-height:2.25rem;font-size:0.8125rem;border-radius:2rem;">{{ cat }}</a>
+      {% endfor %}
     </div>
 
-    <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-{% for project in projects %}
-
-        {# Avoid unsupported Django template filter `mul`; use a constant delay value instead. #}
-        <a href="{% url 'project_detail' project.slug %}" class="group site-card overflow-hidden rounded-[1.75rem] transition hover:-translate-y-1" data-aos="fade-up" data-aos-delay="80">
-
-          <div class="media-frame aspect-[4/3]">
-
+    <div style="display:grid;gap:1.5rem;grid-template-columns:1fr;" class="md:grid-cols-2 xl:grid-cols-3">
+      {% for project in projects %}
+        <a href="{% url 'project_detail' project.slug %}" class="card" style="text-decoration:none;" data-aos="fade-up" data-aos-delay="80">
+          <div class="img-frame" style="aspect-ratio:4/3;overflow:hidden;">
             {% if project.cover_image %}
-              <img src="{{ project.cover_image.url }}" alt="{{ project.title }}" class="h-full w-full object-cover transition duration-300 group-hover:scale-[1.03]" data-aos="zoom-in">
-
+              <img src="{{ project.cover_image.url }}" alt="{{ project.title }}" class="card__img">
             {% else %}
-              <img src="/static/company/images.jpg" alt="{{ project.title }}" class="h-full w-full object-cover transition duration-300 group-hover:scale-[1.03]" data-aos="zoom-in">
-
+              <img src="/static/company/images.jpg" alt="{{ project.title }}" class="card__img">
             {% endif %}
           </div>
-          <div class="p-6">
-            <h3 class="text-lg font-semibold text-slate-900">{{ project.title }}</h3>
-            <p class="mt-2 text-sm font-medium text-slate-500">{{ project.location }}</p>
-            <p class="mt-3 text-sm leading-7 text-slate-600">{{ project.description|truncatewords:18 }}</p>
-
-            <div class="mt-5">
-              <span class="button-secondary inline-flex items-center px-4 py-2 text-xs font-semibold">
-                Learn more
-              </span>
-            </div>
+          <div class="card__body">
+            <p style="font-size:0.75rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--c-gold);margin-bottom:0.5rem;">{{ project.location }}</p>
+            <h2 style="font-size:1.25rem;font-weight:600;margin-bottom:0.5rem;">{{ project.title }}</h2>
+            <p style="font-size:0.875rem;line-height:1.7;color:#52525e;">{{ project.description|truncatewords:18 }}</p>
+            <p style="margin-top:1.25rem;font-size:0.8125rem;font-weight:600;color:var(--c-gold);">View Project →</p>
           </div>
         </a>
       {% empty %}
-        <div class="site-card rounded-[1.75rem] p-6 text-sm text-slate-600">No projects available.</div>
+        <div class="card" style="cursor:default;"><div class="card__body"><p style="font-size:0.875rem;color:#52525e;">No projects available.</p></div></div>
       {% endfor %}
     </div>
-  </section>
+
+  </div>
+</section>
+
 {% endblock %}

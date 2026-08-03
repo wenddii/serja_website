@@ -3,369 +3,841 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Serja Construction & General Trade PLC — Premium construction, engineering, and industrial solutions in Ethiopia.">
 
   <title>{% block title %}Serja Construction{% endblock %}</title>
 
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- AOS (Animate On Scroll) -->
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
-
-  <!-- Lucide icons (official) -->
-  <script src="https://unpkg.com/lucide@latest"></script>
-
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
           fontFamily: {
-            sans: ['Manrope', 'sans-serif'],
+            display: ['Outfit', 'sans-serif'],
+            body: ['Inter', 'sans-serif'],
           },
           colors: {
-            accent: {
-              50: '#eff6ff',
-              100: '#dbeafe',
-              200: '#bfdbfe',
-              300: '#93c5fd',
-              400: '#60a5fa',
-              500: '#2563eb',
-              600: '#1d4ed8',
-              700: '#1e40af',
-              800: '#1e3a8a',
-              900: '#172554'
-            }
-          }
+            sable: {
+              950: '#0a0a0b',
+              900: '#141416',
+              850: '#1a1a1e',
+              800: '#222228',
+              700: '#32323a',
+              600: '#52525e',
+              400: '#9898a6',
+              300: '#b0b0bc',
+              200: '#d4d4dc',
+              100: '#ededf0',
+              50:  '#f7f7f8',
+            },
+            ivory: '#fafaf9',
+            gold: {
+              600: '#b08d3e',
+              500: '#c8a45e',
+              400: '#d4b46e',
+              300: '#e0c88a',
+              200: '#ebd9aa',
+              100: '#f5ecd0',
+              50:  '#faf6eb',
+            },
+          },
         }
       }
     }
   </script>
 
   <style>
+    :root {
+      --sp-1: 0.25rem;
+      --sp-2: 0.5rem;
+      --sp-3: 0.75rem;
+      --sp-4: 1rem;
+      --sp-5: 1.5rem;
+      --sp-6: 2rem;
+      --sp-8: 3rem;
+      --sp-10: 4rem;
+      --sp-12: 5rem;
+      --sp-16: 7rem;
+      --sp-20: 9rem;
+
+      --r-sm: 0.5rem;
+      --r-md: 0.75rem;
+      --r-lg: 1rem;
+      --r-xl: 1.5rem;
+      --r-2xl: 2rem;
+
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+      --shadow-md: 0 8px 24px rgba(0,0,0,0.1);
+      --shadow-lg: 0 20px 48px rgba(0,0,0,0.14);
+      --shadow-glow: 0 0 60px rgba(200,164,94,0.12);
+
+      --c-dark: #0a0a0b;
+      --c-surface: #141416;
+      --c-card: #1a1a1e;
+      --c-border: #32323a;
+      --c-muted: #52525e;
+      --c-subtle: #9898a6;
+      --c-body: #d4d4dc;
+      --c-heading: #ededf0;
+      --c-white: #ffffff;
+      --c-ivory: #fafaf9;
+      --c-gold: #c8a45e;
+      --c-gold-hover: #d4b46e;
+    }
+
+    * { box-sizing: border-box; }
+
     html {
       scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
     body {
-      background:
-        radial-gradient(circle at top left, rgba(37, 99, 235, 0.05), transparent 30%),
-        #ffffff;
-      color: #222222;
-      font-family: 'Manrope', sans-serif;
+      margin: 0;
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 1rem;
+      line-height: 1.7;
+      color: #222;
+      background: var(--c-ivory);
     }
 
-    .page-shell {
-      background: linear-gradient(180deg, rgba(248, 248, 248, 0.85), #ffffff 18%);
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Outfit', sans-serif;
+      line-height: 1.1;
+      letter-spacing: -0.025em;
     }
 
-    .site-card {
-      background: rgba(255, 255, 255, 0.92);
-      border: 1px solid rgba(34, 34, 34, 0.08);
-      box-shadow: 0 18px 50px rgba(17, 24, 39, 0.06);
-      backdrop-filter: blur(10px);
-      transition: transform 200ms ease, box-shadow 200ms ease, background-color 200ms ease;
+    img { display: block; max-width: 100%; }
+
+    a { text-decoration: none; color: inherit; }
+
+    .container {
+      width: 100%;
+      max-width: 1280px;
+      margin-inline: auto;
+      padding-inline: 1.25rem;
     }
 
-    .aos-avatar-hover img {
-      transition: transform 220ms ease;
+    @media (min-width: 640px) {
+      .container { padding-inline: 2rem; }
     }
 
-    .aos-avatar-hover:hover img {
-      transform: scale(1.05);
+    @media (min-width: 1024px) {
+      .container { padding-inline: 3rem; }
     }
 
+    .container--narrow {
+      max-width: 900px;
+    }
 
-    .button-primary,
-    .button-secondary {
+    .container--wide {
+      max-width: 1440px;
+    }
+
+    .sec-dark {
+      background: var(--c-dark);
+      color: var(--c-body);
+    }
+
+    .sec-surface {
+      background: var(--c-surface);
+      color: var(--c-body);
+    }
+
+    .sec-light {
+      background: var(--c-ivory);
+      color: #1a1a1e;
+    }
+
+    .sec-dark h1, .sec-dark h2, .sec-dark h3, .sec-dark h4,
+    .sec-surface h1, .sec-surface h2, .sec-surface h3, .sec-surface h4 {
+      color: var(--c-heading);
+    }
+
+    .sec-light h1, .sec-light h2, .sec-light h3, .sec-light h4 {
+      color: #0a0a0b;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--c-gold);
+    }
+
+    .sec-light .eyebrow { color: var(--c-gold); }
+
+    .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      border-radius: 9999px;
-      padding: 0.875rem 1.5rem;
-      font-size: 0.95rem;
-      font-weight: 700;
-      transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease, color 180ms ease, border-color 180ms ease;
+      gap: 0.5rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      border-radius: 0.5rem;
+      padding: 0.875rem 2rem;
+      min-height: 3rem;
+      border: none;
+      cursor: pointer;
+      transition: all 280ms cubic-bezier(0.22, 1, 0.36, 1);
+      white-space: nowrap;
     }
 
-    .button-primary {
-      background: #2563eb;
-      color: #ffffff;
-      box-shadow: 0 12px 24px rgba(37, 99, 235, 0.18);
+    .btn-primary {
+      background: var(--c-gold);
+      color: #0a0a0b;
     }
 
-    .button-primary:hover,
-    .button-secondary:hover {
-      transform: translateY(-1px);
+    .btn-primary:hover {
+      background: var(--c-gold-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(200,164,94,0.3);
     }
 
-    .button-secondary {
-      background: #ffffff;
-      color: #222222;
-      border: 1px solid rgba(34, 34, 34, 0.12);
+    .btn-outline {
+      background: transparent;
+      color: var(--c-white);
+      border: 1px solid rgba(255,255,255,0.2);
     }
 
-    .button-secondary:hover {
-      background: #f8f8f8;
+    .btn-outline:hover {
+      border-color: rgba(255,255,255,0.45);
+      background: rgba(255,255,255,0.06);
+      transform: translateY(-2px);
     }
 
-    .nav-link {
-      position: relative;
-      color: #444444;
+    .sec-light .btn-outline {
+      color: #0a0a0b;
+      border-color: rgba(10,10,11,0.15);
+    }
+
+    .sec-light .btn-outline:hover {
+      border-color: rgba(10,10,11,0.3);
+      background: rgba(10,10,11,0.03);
+    }
+
+    .card {
+      background: var(--c-card);
+      border: 1px solid var(--c-border);
+      border-radius: var(--r-xl);
+      overflow: hidden;
+      transition: transform 300ms cubic-bezier(0.22, 1, 0.36, 1),
+                  box-shadow 300ms cubic-bezier(0.22, 1, 0.36, 1),
+                  border-color 300ms ease;
+    }
+
+    .sec-light .card {
+      background: var(--c-white);
+      border-color: rgba(10,10,11,0.06);
+      box-shadow: var(--shadow-sm);
+    }
+
+    @media (hover: hover) {
+      .card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-lg);
+      }
+      .sec-light .card:hover {
+        border-color: rgba(200,164,94,0.2);
+      }
+    }
+
+    .card__img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .card:hover .card__img {
+      transform: scale(1.04);
+    }
+
+    .card__body {
+      padding: 1.5rem;
+    }
+
+    @media (min-width: 640px) {
+      .card__body { padding: 2rem; }
+    }
+
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      transition: background 300ms ease, border-color 300ms ease, backdrop-filter 300ms ease;
+      border-bottom: 1px solid transparent;
+    }
+
+    .site-header.scrolled {
+      background: rgba(10,10,11,0.85);
+      backdrop-filter: blur(20px) saturate(1.4);
+      -webkit-backdrop-filter: blur(20px) saturate(1.4);
+      border-bottom-color: rgba(255,255,255,0.06);
+    }
+
+    .site-header__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 5rem;
+    }
+
+    .site-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .site-logo__mark {
+      width: 2.5rem;
+      height: 2.5rem;
+      display: grid;
+      place-items: center;
+      border-radius: 0.625rem;
+      background: linear-gradient(135deg, var(--c-gold) 0%, #b08d3e 100%);
+      color: #0a0a0b;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 1.125rem;
+      letter-spacing: -0.02em;
+    }
+
+    .site-logo__text {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      font-size: 1.125rem;
+      color: var(--c-white);
+      letter-spacing: -0.01em;
+    }
+
+    .site-logo__sub {
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      font-size: 0.6875rem;
+      color: var(--c-subtle);
+      letter-spacing: 0.02em;
+    }
+
+    .site-nav {
+      display: none;
+    }
+
+    @media (min-width: 768px) {
+      .site-nav {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+      }
+    }
+
+    .site-nav__link {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--c-subtle);
       transition: color 200ms ease;
+      position: relative;
     }
 
-    .nav-link::after {
+    .site-nav__link::after {
       content: '';
       position: absolute;
-      left: 0;
       bottom: -4px;
+      left: 0;
       width: 100%;
-      height: 2px;
-      background: #2563eb;
+      height: 1.5px;
+      background: var(--c-gold);
       transform: scaleX(0);
       transform-origin: left;
-      transition: transform 200ms ease;
-      opacity: 0.9;
+      transition: transform 250ms cubic-bezier(0.22, 1, 0.36, 1);
     }
 
-    .nav-link:hover,
-    .nav-link[aria-current='page'] {
-      color: #2563eb;
+    .site-nav__link:hover,
+    .site-nav__link[aria-current="page"] {
+      color: var(--c-white);
     }
 
-    .nav-link:hover::after,
-    .nav-link[aria-current='page']::after {
+    .site-nav__link:hover::after,
+    .site-nav__link[aria-current="page"]::after {
       transform: scaleX(1);
     }
 
-    /* Premium hover polish (lightweight, subtle) */
-    .site-card {
-      transition: transform 200ms ease, box-shadow 200ms ease, background-color 200ms ease;
+    .header-cta {
+      display: none;
     }
 
-    .button-primary,
-    .button-secondary {
-      transition:
-        transform 200ms ease,
-        box-shadow 200ms ease,
-        background-color 200ms ease,
-        color 200ms ease,
-        border-color 200ms ease,
-        opacity 200ms ease;
+    @media (min-width: 768px) {
+      .header-cta {
+        display: inline-flex;
+      }
     }
 
-    .button-primary:hover,
-    .button-secondary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 14px 30px rgba(17, 24, 39, 0.12);
+    .mobile-toggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.75rem;
+      height: 2.75rem;
+      border-radius: 0.625rem;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.05);
+      color: var(--c-white);
+      cursor: pointer;
     }
 
-    /* Cards: subtle elevation on hover */
-    .site-card:hover {
-      box-shadow: 0 22px 60px rgba(17, 24, 39, 0.10);
+    @media (min-width: 768px) {
+      .mobile-toggle { display: none; }
     }
 
-
-    .section-heading {
-      color: #222222;
+    .mobile-menu {
+      position: absolute;
+      top: 5rem;
+      left: 0;
+      right: 0;
+      background: rgba(20,20,22,0.97);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--c-border);
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-0.5rem);
+      transition: opacity 200ms ease, transform 200ms ease;
     }
 
-    .section-subtle {
-      color: #666666;
+    .mobile-menu.is-open {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
     }
 
-    .media-frame {
-      background: #f8f8f8;
-      border: 1px solid rgba(34, 34, 34, 0.08);
-      overflow: hidden;
+    .mobile-menu__link {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1rem 1.25rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9375rem;
+      font-weight: 500;
+      color: var(--c-body);
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      transition: color 150ms ease, background 150ms ease;
     }
 
-    form input,
+    .mobile-menu__link:hover,
+    .mobile-menu__link[aria-current="page"] {
+      color: var(--c-gold);
+      background: rgba(200,164,94,0.04);
+    }
+
+    .site-footer {
+      background: var(--c-dark);
+      color: var(--c-subtle);
+      border-top: 1px solid var(--c-border);
+    }
+
+    .site-footer a {
+      transition: color 200ms ease;
+    }
+
+    .site-footer a:hover {
+      color: var(--c-gold);
+    }
+
+    .footer-heading {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--c-body);
+      margin-bottom: 1.25rem;
+    }
+
+    .footer-link {
+      display: block;
+      font-size: 0.875rem;
+      color: var(--c-subtle);
+      padding: 0.25rem 0;
+    }
+
+    .footer-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--c-border), transparent);
+      margin: 2.5rem 0;
+    }
+
+    .form-group {
+      margin-bottom: 1.25rem;
+    }
+
+    .form-label {
+      display: block;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--c-subtle);
+      letter-spacing: 0.02em;
+      margin-bottom: 0.5rem;
+    }
+
+    .sec-light .form-label {
+      color: #52525e;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 0.875rem 1rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9375rem;
+      color: #0a0a0b;
+      background: var(--c-white);
+      border: 1px solid rgba(10,10,11,0.1);
+      border-radius: var(--r-md);
+      outline: none;
+      transition: border-color 200ms ease, box-shadow 200ms ease;
+    }
+
+    .form-input:focus {
+      border-color: var(--c-gold);
+      box-shadow: 0 0 0 3px rgba(200,164,94,0.12);
+    }
+
+    .form-input::placeholder {
+      color: #9898a6;
+    }
+
+    form input[type="text"],
+    form input[type="email"],
+    form input[type="tel"],
+    form input[type="number"],
+    form input[type="url"],
     form textarea,
     form select {
       width: 100%;
-      background: transparent;
-      border: 0;
-      padding: 0;
-      color: #222222;
-      font: inherit;
+      padding: 0.875rem 1rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9375rem;
+      color: #0a0a0b;
+      background: var(--c-white);
+      border: 1px solid rgba(10,10,11,0.1);
+      border-radius: var(--r-md);
       outline: none;
-      resize: vertical;
+      transition: border-color 200ms ease, box-shadow 200ms ease;
+    }
+
+    form input:focus,
+    form textarea:focus,
+    form select:focus {
+      border-color: var(--c-gold);
+      box-shadow: 0 0 0 3px rgba(200,164,94,0.12);
     }
 
     form input::placeholder,
     form textarea::placeholder {
-      color: #9ca3af;
+      color: #9898a6;
     }
 
-    .soft-shadow {
-      box-shadow: 0 16px 40px rgba(17, 24, 39, 0.08);
+    form textarea { resize: vertical; min-height: 120px; }
+
+    .img-frame {
+      overflow: hidden;
+      background: var(--c-card);
+    }
+
+    .sec-light .img-frame {
+      background: #ededf0;
+    }
+
+    .sec-pad {
+      padding-top: 5rem;
+      padding-bottom: 5rem;
+    }
+
+    @media (min-width: 768px) {
+      .sec-pad {
+        padding-top: 7rem;
+        padding-bottom: 7rem;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .sec-pad {
+        padding-top: 9rem;
+        padding-bottom: 9rem;
+      }
+    }
+
+    .stat-num {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 2.5rem;
+      line-height: 1;
+      color: var(--c-gold);
+      letter-spacing: -0.03em;
+    }
+
+    @media (min-width: 768px) {
+      .stat-num { font-size: 3rem; }
+    }
+
+    .stat-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--c-subtle);
+      margin-top: 0.5rem;
+      letter-spacing: 0.02em;
+    }
+
+    .text-gold { color: var(--c-gold); }
+    .text-muted { color: var(--c-subtle); }
+    .text-body-dark { color: var(--c-body); }
+
+    .gold-line {
+      width: 3rem;
+      height: 2px;
+      background: var(--c-gold);
+      margin-top: 1.5rem;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    .msg-bar {
+      padding: 1rem 1.25rem;
+      border-radius: var(--r-md);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+
+    .msg-bar--success {
+      background: rgba(34,197,94,0.08);
+      border: 1px solid rgba(34,197,94,0.2);
+      color: #166534;
+    }
+
+    .msg-bar--warning {
+      background: rgba(234,179,8,0.08);
+      border: 1px solid rgba(234,179,8,0.2);
+      color: #854d0e;
+    }
+
+    .msg-bar--error {
+      background: rgba(239,68,68,0.08);
+      border: 1px solid rgba(239,68,68,0.2);
+      color: #991b1b;
+    }
+
+    .msg-bar--info {
+      background: rgba(59,130,246,0.08);
+      border: 1px solid rgba(59,130,246,0.2);
+      color: #1e40af;
+    }
+
+    .page-main {
+      padding-top: 5rem;
     }
   </style>
 
   <script>
-    // Mobile menu: no URL/JS/Django route changes—only toggle visibility.
     document.addEventListener('DOMContentLoaded', () => {
+      const header = document.getElementById('site-header');
+      if (!header) return;
+
+      const onScroll = () => {
+        header.classList.toggle('scrolled', window.scrollY > 40);
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+
       const btn = document.getElementById('mobile-menu-button');
       const panel = document.getElementById('mobile-menu');
       if (!btn || !panel) return;
 
-      const setExpanded = (expanded) => {
-        btn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
-      };
-
       btn.addEventListener('click', () => {
-        const isOpen = btn.getAttribute('aria-expanded') === 'true';
-        setExpanded(!isOpen);
-        panel.classList.toggle('opacity-100', !isOpen);
-        panel.classList.toggle('pointer-events-auto', !isOpen);
+        const isOpen = panel.classList.contains('is-open');
+        panel.classList.toggle('is-open', !isOpen);
+        btn.setAttribute('aria-expanded', !isOpen ? 'true' : 'false');
       });
 
-      // Close on link click (mobile)
-      panel.querySelectorAll('a').forEach((a) => {
+      panel.querySelectorAll('a').forEach(a => {
         a.addEventListener('click', () => {
-          setExpanded(false);
-          panel.classList.add('opacity-0');
-          panel.classList.remove('opacity-100');
-          panel.classList.remove('pointer-events-auto');
+          panel.classList.remove('is-open');
+          btn.setAttribute('aria-expanded', 'false');
         });
       });
-
-      // Ensure initial state
-      setExpanded(false);
-      panel.classList.add('opacity-0');
-      panel.classList.remove('opacity-100');
-      panel.classList.remove('pointer-events-auto');
     });
   </script>
 </head>
-<body class="min-h-screen bg-white text-slate-900 antialiased">
-  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-50 focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:text-slate-900 focus:outline focus:outline-2 focus:outline-accent-500">Skip to content</a>
+<body>
+  <a href="#main-content" class="sr-only" style="position:absolute;top:0.75rem;left:0.75rem;z-index:200;background:#fff;padding:0.5rem 1rem;border-radius:0.5rem;color:#0a0a0b;font-weight:600;" onfocus="this.style.position='fixed';this.style.clip='auto';this.style.width='auto';this.style.height='auto'" onblur="this.style.position='absolute';this.style.clip='rect(0,0,0,0)';this.style.width='1px';this.style.height='1px'">Skip to content</a>
 
-<header id="site-header" class="sticky top-0 z-50 border-b border-slate-200/70 bg-white/90 backdrop-blur-xl transition-shadow">
-      <div class="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-4">
-      <div class="flex items-center gap-3">
-        <div class="grid h-11 w-11 place-items-center rounded-2xl bg-accent-500 text-white soft-shadow">
-          <span class="text-lg font-extrabold tracking-tight">S</span>
-        </div>
-        <div class="leading-tight">
-          <h1 class="text-base font-semibold tracking-wide">
-            <a class="text-slate-900 transition-colors hover:text-accent-600" href="{% url 'home' %}">Serja Construction</a>
-          </h1>
-          <p class="text-xs text-slate-500">Construction &amp; General Trade PLC</p>
-        </div>
-      </div>
+  <header id="site-header" class="site-header">
+    <div class="container">
+      <div class="site-header__inner">
 
-      <nav class="hidden items-center gap-6 md:flex" aria-label="Primary">
-        <a class="nav-link nav-item flex items-center gap-2 text-sm font-semibold" href="{% url 'home' %}" aria-current="{% if request.resolver_match.url_name == 'home' %}page{% endif %}">
-          <i data-lucide="home" class="h-4 w-4" aria-hidden="true"></i>
-          <span class="whitespace-nowrap">Home</span>
-        </a>
-        <a class="nav-link nav-item flex items-center gap-2 text-sm font-semibold" href="{% url 'about' %}" aria-current="{% if request.resolver_match.url_name == 'about' %}page{% endif %}">
-          <i data-lucide="building-2" class="h-4 w-4" aria-hidden="true"></i>
-          <span class="whitespace-nowrap">About</span>
-        </a>
-        <a class="nav-link nav-item flex items-center gap-2 text-sm font-semibold" href="{% url 'services' %}" aria-current="{% if request.resolver_match.url_name == 'services' %}page{% endif %}">
-          <i data-lucide="wrench" class="h-4 w-4" aria-hidden="true"></i>
-          <span class="whitespace-nowrap">Services</span>
-        </a>
-        <a class="nav-link nav-item flex items-center gap-2 text-sm font-semibold" href="{% url 'projects' %}" aria-current="{% if request.resolver_match.url_name == 'projects' %}page{% endif %}">
-          <i data-lucide="hard-hat" class="h-4 w-4" aria-hidden="true"></i>
-          <span class="whitespace-nowrap">Projects</span>
-        </a>
-        <a class="nav-link nav-item flex items-center gap-2 text-sm font-semibold" href="{% url 'machinery:list' %}" aria-current="{% if request.resolver_match.url_name == 'list' %}page{% endif %}">
-          <i data-lucide="settings" class="h-4 w-4" aria-hidden="true"></i>
-          <span class="whitespace-nowrap">Machinery</span>
-        </a>
-        <a class="nav-link nav-item flex items-center gap-2 text-sm font-semibold" href="{% url 'contact' %}" aria-current="{% if request.resolver_match.url_name == 'contact' %}page{% endif %}">
-          <i data-lucide="mail" class="h-4 w-4" aria-hidden="true"></i>
-          <span class="whitespace-nowrap">Contact</span>
-        </a>
-      </nav>
-
-      <div id="mobile-menu" class="pointer-events-none absolute left-0 top-[72px] w-full origin-top opacity-0 translate-y-[-8px] transition-all duration-200 md:hidden">
-        <div class="mx-auto max-w-6xl px-4">
-          <div class="site-card rounded-[1.25rem] overflow-hidden border border-slate-200/70 bg-white/95 shadow-sm">
-            <nav class="flex flex-col divide-y divide-slate-100">
-              <a class="nav-link nav-item flex items-center gap-3 px-4 py-4 text-sm font-semibold" href="{% url 'home' %}" aria-current="{% if request.resolver_match.url_name == 'home' %}page{% endif %}">
-                <i data-lucide="home" class="h-4 w-4" aria-hidden="true"></i>
-                <span>Home</span>
-              </a>
-              <a class="nav-link nav-item flex items-center gap-3 px-4 py-4 text-sm font-semibold" href="{% url 'about' %}" aria-current="{% if request.resolver_match.url_name == 'about' %}page{% endif %}">
-                <i data-lucide="building-2" class="h-4 w-4" aria-hidden="true"></i>
-                <span>About</span>
-              </a>
-              <a class="nav-link nav-item flex items-center gap-3 px-4 py-4 text-sm font-semibold" href="{% url 'services' %}" aria-current="{% if request.resolver_match.url_name == 'services' %}page{% endif %}">
-                <i data-lucide="wrench" class="h-4 w-4" aria-hidden="true"></i>
-                <span>Services</span>
-              </a>
-              <a class="nav-link nav-item flex items-center gap-3 px-4 py-4 text-sm font-semibold" href="{% url 'projects' %}" aria-current="{% if request.resolver_match.url_name == 'projects' %}page{% endif %}">
-                <i data-lucide="hard-hat" class="h-4 w-4" aria-hidden="true"></i>
-                <span>Projects</span>
-              </a>
-              <a class="nav-link nav-item flex items-center gap-3 px-4 py-4 text-sm font-semibold" href="{% url 'machinery:list' %}" aria-current="{% if request.resolver_match.url_name == 'list' %}page{% endif %}">
-                <i data-lucide="settings" class="h-4 w-4" aria-hidden="true"></i>
-                <span>Machinery</span>
-              </a>
-              <a class="nav-link nav-item flex items-center gap-3 px-4 py-4 text-sm font-semibold" href="{% url 'contact' %}" aria-current="{% if request.resolver_match.url_name == 'contact' %}page{% endif %}">
-                <i data-lucide="mail" class="h-4 w-4" aria-hidden="true"></i>
-                <span>Contact</span>
-              </a>
-              <a href="{% url 'contact' %}" class="button-primary mx-4 mb-4 mt-2 justify-center px-5 py-3 text-sm font-semibold">
-                Contact Us
-              </a>
-            </nav>
+        <a href="{% url 'home' %}" class="site-logo" aria-label="Serja Construction — Home">
+          <div class="site-logo__mark">S</div>
+          <div>
+            <div class="site-logo__text">Serja Construction</div>
+            <div class="site-logo__sub">Construction & General Trade PLC</div>
           </div>
+        </a>
+
+        <nav class="site-nav" aria-label="Primary navigation">
+          <a class="site-nav__link" href="{% url 'home' %}" aria-current="{% if request.resolver_match.url_name == 'home' %}page{% endif %}">Home</a>
+          <a class="site-nav__link" href="{% url 'about' %}" aria-current="{% if request.resolver_match.url_name == 'about' %}page{% endif %}">About</a>
+          <a class="site-nav__link" href="{% url 'services' %}" aria-current="{% if request.resolver_match.url_name == 'services' %}page{% endif %}">Services</a>
+          <a class="site-nav__link" href="{% url 'projects' %}" aria-current="{% if request.resolver_match.url_name == 'projects' %}page{% endif %}">Projects</a>
+          <a class="site-nav__link" href="{% url 'machinery:list' %}" aria-current="{% if request.resolver_match.url_name == 'list' %}page{% endif %}">Machinery</a>
+          <a class="site-nav__link" href="{% url 'contact' %}" aria-current="{% if request.resolver_match.url_name == 'contact' %}page{% endif %}">Contact</a>
+        </nav>
+
+        <div style="display:flex;align-items:center;gap:0.75rem;">
+          <button id="mobile-menu-button" type="button" class="mobile-toggle" aria-controls="mobile-menu" aria-expanded="false" aria-label="Open menu">
+            <i data-lucide="menu" style="width:1.25rem;height:1.25rem;" aria-hidden="true"></i>
+          </button>
+
+          <a href="{% url 'contact' %}" class="btn btn-primary header-cta" style="padding:0.625rem 1.5rem;min-height:2.5rem;font-size:0.8125rem;">
+            Get a Quote
+          </a>
         </div>
       </div>
+    </div>
 
-      <div class="flex items-center gap-2">
-        <button id="mobile-menu-button" type="button" class="inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white/80 p-2 text-slate-800 shadow-sm md:hidden" aria-controls="mobile-menu" aria-expanded="false" aria-label="Open menu">
-          <i data-lucide="menu" class="h-5 w-5" aria-hidden="true"></i>
-        </button>
-
-        <a href="{% url 'contact' %}" class="button-primary hidden px-5 py-3 sm:px-6 md:inline-flex">
-          Contact Us
-        </a>
+    <div id="mobile-menu" class="mobile-menu">
+      <div class="container" style="padding-top:0.5rem;padding-bottom:1rem;">
+        <a class="mobile-menu__link" href="{% url 'home' %}" aria-current="{% if request.resolver_match.url_name == 'home' %}page{% endif %}">Home</a>
+        <a class="mobile-menu__link" href="{% url 'about' %}" aria-current="{% if request.resolver_match.url_name == 'about' %}page{% endif %}">About</a>
+        <a class="mobile-menu__link" href="{% url 'services' %}" aria-current="{% if request.resolver_match.url_name == 'services' %}page{% endif %}">Services</a>
+        <a class="mobile-menu__link" href="{% url 'projects' %}" aria-current="{% if request.resolver_match.url_name == 'projects' %}page{% endif %}">Projects</a>
+        <a class="mobile-menu__link" href="{% url 'machinery:list' %}" aria-current="{% if request.resolver_match.url_name == 'list' %}page{% endif %}">Machinery</a>
+        <a class="mobile-menu__link" href="{% url 'contact' %}" aria-current="{% if request.resolver_match.url_name == 'contact' %}page{% endif %}">Contact</a>
+        <div style="padding:0.75rem 1.25rem 0.5rem;">
+          <a href="{% url 'contact' %}" class="btn btn-primary" style="width:100%;font-size:0.875rem;">Get a Quote</a>
+        </div>
       </div>
     </div>
   </header>
 
-  <main id="main-content" class="page-shell">
-    {% if messages %}
-      <section class="mx-auto max-w-6xl px-4 pt-6">
-        <div class="rounded-2xl border border-accent-200 bg-accent-50 p-4">
-          <div class="flex items-start gap-3">
-            <div class="mt-1 grid h-8 w-8 place-items-center rounded-xl bg-accent-500/10 ring-1 ring-accent-200">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-accent-700" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 10-2 0v4a1 1 0 001 1h4a1 1 0 100-2h-3V6z" clip-rule="evenodd" />
-              </svg>
-            </div>
-            <div class="flex-1">
-              <p class="text-sm font-semibold text-accent-800">Notification</p>
-              <div class="mt-1 space-y-1">
-                {% for message in messages %}
-                  <p class="text-sm text-slate-700">{{ message }}</p>
-                {% endfor %}
-              </div>
-            </div>
+  {% if messages %}
+    <div class="page-main" style="padding-bottom:0;">
+      <div class="container" style="padding-top:1.5rem;">
+        {% for message in messages %}
+          <div class="msg-bar {% if message.tags == 'success' %}msg-bar--success{% elif message.tags == 'warning' %}msg-bar--warning{% elif message.tags == 'error' %}msg-bar--error{% else %}msg-bar--info{% endif %}" style="margin-bottom:0.75rem;">
+            {{ message }}
           </div>
-        </div>
-      </section>
-    {% endif %}
-
-    <div class="mx-auto max-w-6xl px-4 py-10 md:py-14">
-      {% block content %}{% endblock %}
+        {% endfor %}
+      </div>
     </div>
+  {% endif %}
+
+  <main id="main-content">
+    {% block content %}{% endblock %}
   </main>
 
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <footer class="site-footer">
+    <div class="container sec-pad" style="padding-top:4rem;padding-bottom:3rem;">
 
+      <div style="display:grid;gap:3rem;grid-template-columns:1fr;" data-aos="fade-up">
+
+        <div style="display:grid;gap:3rem;" class="md:grid-cols-4 sm:grid-cols-2">
+          <div style="grid-column:span 1;">
+            <div class="site-logo" style="margin-bottom:1.25rem;">
+              <div class="site-logo__mark" style="width:2.25rem;height:2.25rem;font-size:1rem;">S</div>
+              <div>
+                <div class="site-logo__text" style="font-size:1rem;">Serja Construction</div>
+                <div class="site-logo__sub">Construction & General Trade PLC</div>
+              </div>
+            </div>
+            <p style="font-size:0.875rem;line-height:1.7;color:var(--c-subtle);max-width:280px;">
+              Commercial, residential, and civil construction delivered with precision and care.
+            </p>
+          </div>
+
+          <div>
+            <p class="footer-heading">Navigation</p>
+            <a href="{% url 'home' %}" class="footer-link">Home</a>
+            <a href="{% url 'about' %}" class="footer-link">About</a>
+            <a href="{% url 'services' %}" class="footer-link">Services</a>
+            <a href="{% url 'projects' %}" class="footer-link">Projects</a>
+            <a href="{% url 'machinery:list' %}" class="footer-link">Machinery</a>
+            <a href="{% url 'contact' %}" class="footer-link">Contact</a>
+          </div>
+
+          <div>
+            <p class="footer-heading">Services</p>
+            {% for service in services|slice:":5" %}
+              <a href="{% url 'services' %}" class="footer-link">{{ service.title }}</a>
+            {% empty %}
+              <p class="footer-link" style="cursor:default;">Coming soon</p>
+            {% endfor %}
+          </div>
+
+          <div>
+            <p class="footer-heading">Contact</p>
+            <p style="font-size:0.875rem;color:var(--c-subtle);margin-bottom:0.5rem;">
+              {{ company.phone|default:'+251 000 000 000' }}
+            </p>
+            <p style="font-size:0.875rem;color:var(--c-subtle);margin-bottom:0.5rem;">
+              {{ company.email|default:'info@serjaconstruction.com' }}
+            </p>
+            <p style="font-size:0.875rem;color:var(--c-subtle);">
+              {{ company.address|default:'Addis Ababa, Ethiopia' }}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-divider"></div>
+
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1rem;">
+        <p style="font-size:0.8125rem;color:var(--c-muted);">
+          © {% now "Y" %} Serja Construction & General Trade PLC. All rights reserved.
+        </p>
+        <p style="font-size:0.8125rem;color:var(--c-muted);">
+          Addis Ababa, Ethiopia
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>
-    // Replace any element with `data-lucide` with the corresponding Lucide SVG.
     window.addEventListener('DOMContentLoaded', () => {
       if (window.lucide) {
         window.lucide.createIcons();
@@ -374,70 +846,14 @@
       const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       if (!prefersReducedMotion && window.AOS) {
         window.AOS.init({
-          duration: 650,
+          duration: 800,
           easing: 'ease-out-cubic',
-          offset: 90,
+          offset: 60,
           once: true,
           mirror: false,
-          anchorPlacement: 'top-bottom',
-          useClassNames: false,
-          disable: 'phone',
         });
       }
     });
   </script>
-
-
-  <footer class="border-t border-slate-200 bg-[#f8f8f8]" data-aos="fade-up">
-
-    <div class="mx-auto max-w-6xl px-4 py-10 md:py-12" data-aos="fade-up" data-aos-delay="120">
-
-      <div class="grid gap-8 md:grid-cols-4">
-        <div>
-          <div class="flex items-center gap-3">
-            <div class="grid h-10 w-10 place-items-center rounded-2xl bg-accent-500 text-white soft-shadow">
-              <span class="text-lg font-extrabold tracking-tight">S</span>
-            </div>
-            <div>
-              <p class="text-sm font-semibold text-slate-900">Serja Construction</p>
-              <p class="text-xs text-slate-500">Construction &amp; General Trade PLC</p>
-            </div>
-          </div>
-          <p class="mt-4 text-sm text-slate-600">Commercial, residential, and civil construction delivered with clarity and care.</p>
-          <p class="mt-6 text-xs text-slate-500">© {% now "Y" %} Serja Construction. All rights reserved.</p>
-        </div>
-
-        <div>
-          <p class="text-sm font-semibold text-slate-900">Quick Links</p>
-          <ul class="mt-3 space-y-2 text-sm text-slate-600">
-            <li><a class="transition-colors hover:text-accent-600" href="{% url 'home' %}">Home</a></li>
-            <li><a class="transition-colors hover:text-accent-600" href="{% url 'about' %}">About</a></li>
-            <li><a class="transition-colors hover:text-accent-600" href="{% url 'services' %}">Services</a></li>
-            <li><a class="transition-colors hover:text-accent-600" href="{% url 'projects' %}">Projects</a></li>
-            <li><a class="transition-colors hover:text-accent-600" href="{% url 'machinery:list' %}">Machinery</a></li>
-            <li><a class="transition-colors hover:text-accent-600" href="{% url 'contact' %}">Contact</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <p class="text-sm font-semibold text-slate-900">Services</p>
-          <ul class="mt-3 space-y-2 text-sm text-slate-600">
-            {% for service in services|slice:":5" %}
-              <li><a class="transition-colors hover:text-accent-600" href="{% url 'services' %}">{{ service.title }}</a></li>
-            {% empty %}
-              <li class="text-slate-500">Service list coming soon.</li>
-            {% endfor %}
-          </ul>
-        </div>
-
-        <div>
-          <p class="text-sm font-semibold text-slate-900">Contact</p>
-          <p class="mt-2 text-sm text-slate-600">+251 000 000 000</p>
-          <p class="mt-1 text-sm text-slate-600">info@serjaconstruction.com</p>
-          <p class="mt-1 text-sm text-slate-600">Addis Ababa, Ethiopia</p>
-        </div>
-      </div>
-    </div>
-  </footer>
 </body>
 </html>

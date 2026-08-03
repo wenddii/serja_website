@@ -3,91 +3,116 @@
 {% block title %}{{ project.title }} | Serja Construction{% endblock %}
 
 {% block content %}
-  <section class="site-card overflow-hidden rounded-[2rem]">
-    <div class="grid lg:grid-cols-[1.25fr_0.75fr] lg:items-stretch">
-      <div class="media-frame min-h-[320px] lg:min-h-[460px]">
-        {% if project.cover_image %}
-          <img src="{{ project.cover_image.url }}" alt="{{ project.title }}" class="h-full w-full object-cover">
-        {% else %}
-          <img src="/static/company/images.jpg" alt="{{ project.title }}" class="h-full w-full object-cover">
-        {% endif %}
-      </div>
 
-      <div class="p-6 sm:p-8 lg:p-10">
-        <p class="text-sm font-semibold uppercase tracking-[0.2em] text-accent-600">Project</p>
-        <h2 class="mt-3 text-3xl font-semibold tracking-tight text-slate-900 md:text-4xl">{{ project.title }}</h2>
-        <p class="mt-4 text-base leading-8 text-slate-600">{{ project.description }}</p>
+<section class="sec-dark" style="position:relative;overflow:hidden;">
+  <div style="position:absolute;inset:0;z-index:0;">
+    {% if project.cover_image %}
+      <img src="{{ project.cover_image.url }}" alt="{{ project.title }}" style="width:100%;height:100%;object-fit:cover;">
+    {% else %}
+      <img src="/static/company/images.jpg" alt="{{ project.title }}" style="width:100%;height:100%;object-fit:cover;">
+    {% endif %}
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(10,10,11,0.4) 0%, rgba(10,10,11,0.85) 100%);" aria-hidden="true"></div>
+  </div>
 
-        <div class="mt-8 space-y-4">
-          <div class="rounded-2xl bg-[#f8f8f8] px-4 py-3">
-            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">Location</p>
-            <p class="mt-2 text-sm font-medium text-slate-800">{{ project.location }}</p>
-          </div>
-          <div class="rounded-2xl bg-[#f8f8f8] px-4 py-3">
-            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">Status</p>
-            <p class="mt-2 text-sm font-medium text-slate-800">{{ project.get_status_display }}</p>
-          </div>
-          {% if project.category %}
-            <div class="rounded-2xl bg-accent-50 px-4 py-3">
-              <p class="text-xs font-semibold uppercase tracking-[0.2em] text-accent-600">Category</p>
-              <p class="mt-2 text-sm font-medium text-slate-800">{{ project.category.name }}</p>
-            </div>
-          {% endif %}
-        </div>
-      </div>
+  <div class="container" style="position:relative;z-index:1;padding-top:10rem;padding-bottom:4rem;">
+    <div style="max-width:42rem;" data-aos="fade-up">
+      <p class="eyebrow">Project</p>
+      <h1 style="margin-top:0.75rem;font-size:clamp(2rem,5vw,3.5rem);font-weight:700;color:var(--c-heading);">{{ project.title }}</h1>
+      <div class="gold-line"></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="mt-14">
-    <div class="flex items-end justify-between gap-4">
+<section class="sec-light sec-pad">
+  <div class="container">
+    <div style="display:grid;gap:3rem;" class="lg:grid-cols-[1fr_320px]" data-aos="fade-up">
+
       <div>
-        <p class="text-sm font-semibold uppercase tracking-[0.2em] text-accent-600">Gallery</p>
-        <h3 class="mt-3 text-3xl font-semibold tracking-tight text-slate-900">Project images</h3>
+        <p style="font-size:1.0625rem;line-height:1.85;color:#52525e;">{{ project.description }}</p>
       </div>
+
+      <div style="display:flex;flex-direction:column;gap:1.25rem;">
+        <div class="card" style="cursor:default;">
+          <div class="card__body" style="padding:1.5rem;">
+            <p style="font-size:0.75rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--c-gold);margin-bottom:0.5rem;">Location</p>
+            <p style="font-size:0.9375rem;font-weight:500;color:#0a0a0b;">{{ project.location }}</p>
+          </div>
+        </div>
+
+        <div class="card" style="cursor:default;">
+          <div class="card__body" style="padding:1.5rem;">
+            <p style="font-size:0.75rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--c-gold);margin-bottom:0.5rem;">Status</p>
+            <p style="font-size:0.9375rem;font-weight:500;color:#0a0a0b;">{{ project.get_status_display }}</p>
+          </div>
+        </div>
+
+        {% if project.category %}
+          <div class="card" style="cursor:default;">
+            <div class="card__body" style="padding:1.5rem;">
+              <p style="font-size:0.75rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--c-gold);margin-bottom:0.5rem;">Category</p>
+              <p style="font-size:0.9375rem;font-weight:500;color:#0a0a0b;">{{ project.category.name }}</p>
+            </div>
+          </div>
+        {% endif %}
+
+        <a href="{% url 'projects' %}" class="btn btn-outline" style="width:100%;margin-top:0.5rem;">← Back to Projects</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="sec-surface sec-pad" style="border-top:1px solid var(--c-border);">
+  <div class="container">
+    <div style="margin-bottom:2.5rem;" data-aos="fade-up">
+      <p class="eyebrow">Gallery</p>
+      <h2 style="margin-top:0.75rem;font-size:clamp(1.5rem,3vw,2.25rem);font-weight:700;">Project Images</h2>
     </div>
 
-    <div class="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+    <div style="display:grid;gap:1.5rem;grid-template-columns:1fr;" class="md:grid-cols-2 xl:grid-cols-3">
       {% for image in project_images %}
-        <div class="site-card overflow-hidden rounded-[1.75rem]">
-          <div class="media-frame aspect-[4/3]">
-            <img src="{{ image.image.url }}" alt="{{ image.caption|default:'Project image' }}" class="h-full w-full object-cover">
+        <div class="card" data-aos="fade-up" style="cursor:default;">
+          <div class="img-frame" style="aspect-ratio:4/3;overflow:hidden;">
+            <img src="{{ image.image.url }}" alt="{{ image.caption|default:'Project image' }}" class="card__img">
           </div>
-          <div class="p-5">
-            <p class="text-sm font-semibold text-slate-900">{{ image.caption|default:'Project image' }}</p>
+          <div class="card__body" style="padding:1.25rem;">
+            <p style="font-size:0.875rem;font-weight:500;color:var(--c-body);">{{ image.caption|default:'Project image' }}</p>
           </div>
         </div>
       {% empty %}
-        <div class="site-card rounded-[1.75rem] p-6 text-sm text-slate-600">No extra images uploaded.</div>
+        <div class="card" style="cursor:default;"><div class="card__body"><p style="font-size:0.875rem;color:var(--c-subtle);">No extra images uploaded.</p></div></div>
       {% endfor %}
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="mt-14">
-    <div class="flex items-end justify-between gap-4">
-      <div>
-        <p class="text-sm font-semibold uppercase tracking-[0.2em] text-accent-600">Related</p>
-        <h3 class="mt-3 text-3xl font-semibold tracking-tight text-slate-900">Similar projects</h3>
-      </div>
+<section class="sec-dark sec-pad" style="border-top:1px solid var(--c-border);">
+  <div class="container">
+    <div style="margin-bottom:2.5rem;" data-aos="fade-up">
+      <p class="eyebrow">Related</p>
+      <h2 style="margin-top:0.75rem;font-size:clamp(1.5rem,3vw,2.25rem);font-weight:700;">Similar Projects</h2>
     </div>
 
-    <div class="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+    <div style="display:grid;gap:1.5rem;grid-template-columns:1fr;" class="md:grid-cols-2 xl:grid-cols-3">
       {% for item in related_projects %}
-        <a href="{% url 'project_detail' item.slug %}" class="group site-card overflow-hidden rounded-[1.75rem] transition hover:-translate-y-1">
-          <div class="media-frame aspect-[4/3]">
+        <a href="{% url 'project_detail' item.slug %}" class="card" style="text-decoration:none;">
+          <div class="img-frame" style="aspect-ratio:4/3;overflow:hidden;">
             {% if item.cover_image %}
-              <img src="{{ item.cover_image.url }}" alt="{{ item.title }}" class="h-full w-full object-cover transition duration-300 group-hover:scale-[1.03]">
+              <img src="{{ item.cover_image.url }}" alt="{{ item.title }}" class="card__img">
             {% else %}
-              <img src="/static/company/images.jpg" alt="{{ item.title }}" class="h-full w-full object-cover transition duration-300 group-hover:scale-[1.03]">
+              <img src="/static/company/images.jpg" alt="{{ item.title }}" class="card__img">
             {% endif %}
           </div>
-          <div class="p-5">
-            <p class="text-lg font-semibold text-slate-900">{{ item.title }}</p>
-            <p class="mt-2 text-sm text-slate-600">View details</p>
+          <div class="card__body" style="padding:1.25rem;">
+            <h3 style="font-size:1.0625rem;font-weight:600;margin-bottom:0.375rem;">{{ item.title }}</h3>
+            <p style="font-size:0.8125rem;color:var(--c-gold);font-weight:500;">View details →</p>
           </div>
         </a>
       {% empty %}
-        <div class="site-card rounded-[1.75rem] p-6 text-sm text-slate-600">No related projects.</div>
+        <div class="card" style="cursor:default;"><div class="card__body"><p style="font-size:0.875rem;color:var(--c-subtle);">No related projects.</p></div></div>
       {% endfor %}
     </div>
-  </section>
+  </div>
+</section>
+
 {% endblock %}
